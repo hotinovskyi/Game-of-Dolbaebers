@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#101219" />
-  <title>Game of Dolbaebers · 0.24.0</title>
+  <title>Game of Dolbaebers · 0.25.0</title>
   <script src="https://telegram.org/js/telegram-web-app.js?64"></script>
   <style>
     :root{color-scheme:dark;--bg:#101219;--panel:#191d27;--panel2:#222936;--line:#323b4c;--text:#f1f0eb;--muted:#9da6b5;--gold:#d5ad68;--green:#79c99c;--red:#e47e79;--blue:#86b8e8;--purple:#b69be8;--orange:#e6a56b;--safe:env(safe-area-inset-bottom,0px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -959,10 +959,148 @@ button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px soli
 .card-copy-formula,.card-copy-footnote{color:#bfc5d2;font-size:12px!important;line-height:1.5}
 .draft-mini-card small{line-height:1.4}
 @media(max-height:650px){#battleBoard.is-live .battle-card{padding:5px!important;gap:4px!important}#battleBoard.is-live .battle-card .bc-preview{font-size:9px!important}#battleBoard.is-live .battle-card .bc-preview .card-copy-line+.card-copy-line{margin-top:3px}#battleBoard.is-live .battle-card .bc-type{font-size:7px!important}}
-</style></head>
+</style>
+<style id="combat-ui-v025">
+/* 0.25.0: one readable combat composition, visible cards, corrected facing, centered Arena. */
+#actionReport,
+#actionReport.show{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+
+/* The scene is the only visible fighter panel. The former side-by-side cards stay hidden
+   in the DOM because battle calculations, status effects and detail data still use them. */
+#battleBoard.is-live{overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:12px!important}
+#battleBoard.is-live::-webkit-scrollbar{display:none}
+#battleBoard.is-live>.battle-stage{flex:0 0 auto!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+#battleBoard.is-live>.battle-stage>.row{display:none!important}
+#battleBoard .duelbox.matchup{display:none!important}
+#battleBoard .combat-picks,#battleBoard .battle-mods{display:none!important}
+
+#battleBoard .combat-scene{
+  height:clamp(244px,34dvh,315px)!important;min-height:244px!important;max-height:315px;
+  margin:0!important;border:1px solid #9a7846;border-radius:18px!important;overflow:hidden;
+  box-shadow:inset 0 0 0 2px #d5ad6822,inset 0 0 36px #06090d99,0 8px 22px #0007;
+}
+#battleBoard .scene-topline{top:9px;left:10px;right:10px;display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;align-items:center;font-size:8px;letter-spacing:.09em}
+#battleBoard .scene-topline span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#battleBoard .scene-topline span:nth-child(2){padding:4px 7px;border:1px solid #d9b77a66;border-radius:30px;background:#111722d9;color:#f2d39a;text-align:center}
+#battleBoard .scene-topline span:last-child{padding:4px 7px;border:1px solid #d9b77a55;border-radius:30px;background:#111722a8;text-align:center}
+#battleBoard .scene-character{width:54%!important;height:76%!important;bottom:58px!important}
+#battleBoard .scene-player{left:-3%!important}
+#battleBoard .scene-enemy{right:-3%!important}
+#battleBoard .scene-art{left:3%!important;width:94%!important;height:100%!important;bottom:0!important;object-fit:contain!important;object-position:center bottom!important}
+/* These cut-outs already have the correct side-facing direction: player looks right,
+   enemy looks left. Never mirror either asset. */
+#battleBoard .scene-player .scene-art,
+#battleBoard .scene-enemy .scene-art{transform:none}
+#battleBoard .scene-character-name{display:none!important}
+#battleBoard .scene-impact{top:47%!important;width:48px!important;height:48px!important;z-index:6}
+#battleBoard .scene-impact:before{inset:-17px}
+#battleBoard .scene-impact-slash{height:58px!important}
+#battleBoard .scene-impact b{font-size:10px!important}
+#battleBoard .scene-player .scene-aura{background:#80b6df}
+#battleBoard .scene-enemy .scene-aura{background:#df8b68}
+#battleBoard .scene-player.scene-attacking .scene-art{animation:scenePlayerLunge .72s ease-in-out both!important}
+#battleBoard .scene-enemy.scene-attacking .scene-art{animation:sceneEnemyLunge .72s ease-in-out both!important}
+@keyframes sceneIdlePlayer{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes sceneIdleEnemy{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes scenePlayerLunge{0%,100%{transform:translate(0,0)}35%{transform:translate(15px,-6px)}65%{transform:translate(8px,-2px)}}
+@keyframes sceneEnemyLunge{0%,100%{transform:translate(0,0)}35%{transform:translate(-15px,-6px)}65%{transform:translate(-8px,-2px)}}
+/* Human opponents use the same rear three-quarter sprite sheet as the player,
+   so mirror only human enemies to make them face left toward the player.
+   Monster cut-outs already face left and are never mirrored. */
+#battleBoard .scene-enemy.is-hero-enemy .scene-art{animation-name:sceneIdleEnemyFacing!important}
+#battleBoard .scene-enemy.is-hero-enemy.scene-attacking .scene-art{animation:sceneEnemyLungeFacing .72s ease-in-out both!important}
+@keyframes sceneIdleEnemyFacing{0%,100%{transform:scaleX(-1) translateY(0)}50%{transform:scaleX(-1) translateY(-4px)}}
+@keyframes sceneEnemyLungeFacing{0%,100%{transform:translateX(0) scaleX(-1)}35%{transform:translateX(-15px) scaleX(-1) translateY(-6px)}65%{transform:translateX(-8px) scaleX(-1) translateY(-2px)}}
+
+/* Both HP displays are attached to the same scene as the fighters and VS. */
+#battleBoard .scene-hud{
+  position:absolute;z-index:9;bottom:8px;width:calc(50% - 30px);min-width:0;min-height:56px;
+  padding:6px 8px 5px;border:1px solid #c9a365a0;border-radius:10px;
+  background:linear-gradient(145deg,#141a25ed,#0d121bed);color:#f4ead7;
+  display:flex;flex-direction:column;justify-content:center;gap:4px;text-align:left;
+  box-shadow:0 4px 12px #0008;cursor:pointer;appearance:none;-webkit-appearance:none;
+}
+#battleBoard .scene-player-hud{left:8px;border-color:#75b4e7}
+#battleBoard .scene-enemy-hud{right:8px;border-color:#d27b68}
+#battleBoard .scene-hud-head{display:flex;align-items:baseline;justify-content:space-between;gap:4px;min-width:0}
+#battleBoard .scene-hud-head b{font:800 11px/1.1 Georgia,serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+#battleBoard .scene-hud-head strong{font:800 9px/1.1 system-ui,sans-serif;color:#e7d1a5;white-space:nowrap;flex-shrink:0;font-variant-numeric:tabular-nums}
+#battleBoard .scene-player-hud .scene-hud-head strong{color:#8dd8b1}
+#battleBoard .scene-hp-track{display:block;height:7px;border-radius:20px;background:#080d16;overflow:hidden;box-shadow:inset 0 1px 3px #000b}
+#battleBoard .scene-hp-track i{display:block;height:100%;width:100%;border-radius:20px;background:linear-gradient(90deg,#48946e,#84d1a4);transition:width .3s ease}
+#battleBoard .scene-enemy-hud .scene-hp-track i{background:linear-gradient(90deg,#b85d62,#ee9980)}
+#battleBoard .scene-hud small{font:700 8px/1.1 system-ui,sans-serif;color:#b8bdc8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#battleBoard .scene-hud:active{filter:brightness(1.2)}
+
+/* Cards stay directly below the scene. No flex shrinking or clipping under the tab bar. */
+#battleBoard.is-live>.action-panel{
+  flex:0 0 auto!important;min-height:0!important;margin:8px 0 0!important;padding:10px!important;
+  display:flex!important;flex-direction:column!important;gap:9px!important;overflow:visible!important;
+}
+#battleBoard.is-live>.action-panel>.row{flex:0 0 auto!important;align-items:center;gap:5px}
+#battleBoard.is-live>.action-panel h2{font-size:16px!important;line-height:1.2}
+#battleBoard.is-live #actionHint{font-size:9px!important;white-space:nowrap;padding:4px 7px}
+#battleBoard.is-live .battle-hand{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:minmax(178px,auto)!important;grid-auto-rows:minmax(178px,auto)!important;
+  gap:7px!important;flex:0 0 auto!important;width:100%;height:auto!important;min-height:178px!important;
+  max-height:none!important;margin:0!important;overflow:visible!important;align-items:stretch!important;
+}
+#battleBoard.is-live .battle-card{
+  display:flex!important;flex-direction:column!important;justify-content:flex-start!important;align-items:center!important;
+  width:100%;height:100%!important;min-width:0;min-height:178px!important;max-height:none!important;
+  padding:8px 5px!important;gap:6px!important;overflow:hidden!important;border-radius:12px!important;
+}
+#battleBoard.is-live .battle-card .bc-type{font-size:7px!important;line-height:1.15;white-space:normal;text-align:center}
+#battleBoard.is-live .battle-card .bc-icon{height:29px!important;min-height:29px!important;flex:0 0 29px!important;font-size:23px!important}
+#battleBoard.is-live .battle-card .bc-icon svg{width:27px!important;height:27px!important}
+#battleBoard.is-live .battle-card b{font-size:10px!important;line-height:1.2!important;overflow-wrap:anywhere}
+#battleBoard.is-live .battle-card .bc-preview{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:4!important;overflow:hidden!important;min-height:0!important;font-size:9px!important;line-height:1.3!important;flex:0 1 auto!important}
+#battleBoard.is-live .battle-card em{display:block!important;font-size:7px!important;line-height:1.1;margin-top:auto!important}
+#battleBoard.is-live #heroSkill{flex:0 0 auto!important;min-height:44px!important;margin:0!important;font-size:11px}
+#battleBoard.is-live .battle-history{flex:0 0 auto!important;margin:8px 0 0!important}
+#battleBoard.is-live #lastActionReport{flex:0 0 auto!important;min-height:18px!important;max-height:none!important;white-space:normal!important;line-height:1.4!important;font-size:10px!important;padding:0 2px}
+#battleBoard.is-live #battleResult{flex:0 0 auto}
+
+/* Arena occupies the central navigation slot and is visually the game's primary destination. */
+.tabs{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:2px!important}
+.tab[data-screen="arena"]{position:relative;z-index:2;transform:translateY(-5px)!important;color:#ffe2a5!important;font-size:10px!important;font-weight:950!important}
+.tab[data-screen="arena"] .ico{
+  width:42px!important;height:42px!important;margin-top:-13px;border-radius:14px!important;
+  border:1px solid #d6b574!important;background:linear-gradient(145deg,#805c32,#302219)!important;
+  color:#ffe5ad!important;box-shadow:0 0 0 3px #d6b57422,0 5px 17px #000a,0 0 20px #d6a85a44!important;
+}
+.tab[data-screen="arena"] .ico svg{width:27px!important;height:27px!important;stroke-width:1.9!important}
+.tab[data-screen="arena"].active .ico{background:linear-gradient(145deg,#a77b40,#59402a)!important;box-shadow:0 0 0 3px #e4c17a35,0 5px 20px #000b,0 0 25px #e3b75c66!important}
+.tab[data-screen="arena"].active:after{width:24px;height:3px;bottom:-1px;background:#f2cf83}
+
+@media(max-width:390px){
+  #battleBoard .combat-scene{height:clamp(235px,33dvh,285px)!important;min-height:235px!important}
+  #battleBoard .scene-hud{width:calc(50% - 27px);padding:5px 6px;min-height:54px}
+  #battleBoard .scene-hud-head b{font-size:10px}
+  #battleBoard .scene-hud-head strong{font-size:8px}
+  #battleBoard.is-live .battle-hand{gap:5px!important;min-height:174px!important;grid-template-rows:minmax(174px,auto)!important}
+  #battleBoard.is-live .battle-card{min-height:174px!important;padding:7px 4px!important}
+  #battleBoard.is-live .battle-card b{font-size:9px!important}
+  #battleBoard.is-live .battle-card .bc-preview{font-size:8px!important}
+}
+@media(max-height:720px){
+  #battleBoard.is-live{gap:5px!important}
+  #battleBoard .combat-scene{height:220px!important;min-height:220px!important}
+  #battleBoard .scene-character{bottom:55px!important;height:73%!important}
+  #battleBoard .scene-hud{min-height:50px;padding:4px 6px}
+  #battleBoard.is-live .battle-hand{min-height:150px!important;grid-template-rows:minmax(150px,auto)!important}
+  #battleBoard.is-live .battle-card{min-height:150px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #battleBoard .scene-art,#battleBoard .scene-impact:before,#battleBoard .scene-embers i{animation:none!important}
+  #battleBoard .scene-hp-track i{transition:none!important}
+}
+</style>
+</head>
 <body>
 <main class="app">
-  <header class="top"><div><div class="brand">GAME OF DOLBAEBERS <span class="build-badge">БИЛД 24</span></div><div class="title" id="screenTitle">Game of Dolbaebers</div></div><div class="top-actions"><div class="wallet"><span class="wallet-coin"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5c-.8-.8-1.8-1.2-3.2-1.2-1.7 0-2.8.8-2.8 2s1 1.8 2.8 2.2 2.8 1 2.8 2.2-1.1 2-2.9 2c-1.3 0-2.5-.5-3.3-1.3M12 5.8v12.4"/></svg></span> <span id="gold">500</span></div></div></header>
+  <header class="top"><div><div class="brand">GAME OF DOLBAEBERS <span class="build-badge">БИЛД 25</span></div><div class="title" id="screenTitle">Game of Dolbaebers</div></div><div class="top-actions"><div class="wallet"><span class="wallet-coin"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5c-.8-.8-1.8-1.2-3.2-1.2-1.7 0-2.8.8-2.8 2s1 1.8 2.8 2.2 2.8 1 2.8 2.2-1.1 2-2.9 2c-1.3 0-2.5-.5-3.3-1.3M12 5.8v12.4"/></svg></span> <span id="gold">500</span></div></div></header>
 
   <section class="screen active" id="home">
     <div class="card character-card"><div id="heroCurrent"></div><div id="heroEffectiveStats" class="hero-effective-stats"></div><button class="btn secondary full" id="goItems" style="margin-top:10px">✧ МОИ АРТЕФАКТЫ</button></div>
@@ -1050,25 +1188,36 @@ button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px soli
     </div>
     <div class="battle-board" id="battleBoard" style="display:none">
 <div class="card battle-stage"><div class="row"><b id="battleTurn">Раунд 1 · Твой ход</b><span class="pill" id="battleInitiative">Первый ход: ты</span></div>
-<div class="combat-scene" id="combatScene" aria-label="Сцена боя">
+<div class="combat-scene" id="combatScene" aria-label="Единая сцена боя">
   <div class="scene-skyline" aria-hidden="true"></div>
   <div class="scene-moon" aria-hidden="true"></div>
   <div class="scene-horizon" aria-hidden="true"></div>
   <div class="scene-ground" aria-hidden="true"></div>
   <div class="scene-embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="scene-topline"><span id="sceneEncounter">АРЕНА · ДУЭЛЬ</span><span id="sceneRound">РАУНД 1</span></div>
-  <div class="scene-character scene-player" id="scenePlayer">
-    <div class="scene-aura" aria-hidden="true"></div>
-    <img class="scene-art" id="scenePlayerPortrait" alt="Твой герой в бою" />
-    <span class="scene-character-name" id="scenePlayerName">Герой</span>
+  <div class="scene-topline">
+    <span id="sceneEncounter">АРЕНА · ДУЭЛЬ</span>
+    <span id="sceneActionLabel" class="scene-action-label">ТВОЙ ХОД</span>
+    <span id="sceneRound">РАУНД 1</span>
+  </div>
+  <div class="scene-character scene-player" id="scenePlayer" aria-hidden="true">
+    <div class="scene-aura"></div>
+    <img class="scene-art" id="scenePlayerPortrait" alt="Твой герой со спины" />
   </div>
   <div class="scene-impact" aria-hidden="true"><span class="scene-impact-ring"></span><span class="scene-impact-slash"></span><b>VS</b></div>
-  <div class="scene-character scene-enemy" id="sceneEnemy">
-    <div class="scene-aura" aria-hidden="true"></div>
-    <img class="scene-art" id="sceneEnemyPortrait" alt="Противник" />
-    <span class="scene-character-name" id="sceneEnemyName">Противник</span>
+  <div class="scene-character scene-enemy" id="sceneEnemy" aria-hidden="true">
+    <div class="scene-aura"></div>
+    <img class="scene-art" id="sceneEnemyPortrait" alt="Противник лицом к герою" />
   </div>
-  <div class="scene-bottomline"><span>GAME OF DOLBAEBERS</span><span id="sceneActionLabel">СТОЛКНОВЕНИЕ</span></div>
+  <button class="scene-hud scene-player-hud" id="scenePlayerHud" type="button" aria-label="Характеристики твоего героя">
+    <span class="scene-hud-head"><b id="scenePlayerName">Герой</b><strong id="scenePlayerHp">100 / 100 HP</strong></span>
+    <span class="scene-hp-track"><i id="scenePlayerHpFill" style="width:100%"></i></span>
+    <small id="scenePlayerStatus">Блок 0</small>
+  </button>
+  <button class="scene-hud scene-enemy-hud" id="sceneEnemyHud" type="button" aria-label="Характеристики противника">
+    <span class="scene-hud-head"><b id="sceneEnemyName">Противник</b><strong id="sceneEnemyHp">100 / 100 HP</strong></span>
+    <span class="scene-hp-track"><i id="sceneEnemyHpFill" style="width:100%"></i></span>
+    <small id="sceneEnemyStatus">Блок 0</small>
+  </button>
 </div>
 <div class="duelbox matchup" style="margin:14px 0"><div class="fighter" id="enemyFighter"><img alt="Противник" class="battle-portrait" id="enemyBattlePortrait"/><strong id="enemyBattleName">Соперник</strong><small id="enemyBattleTitle">Тренировочный соперник</small><div id="enemyHp" style="font-size:24px;color:var(--red)">100 HP</div><small id="enemyStatus">Блок 0</small><div class="battle-stat-grid" id="enemyBattleStats"></div><div class="battle-mod-badge" id="enemyBattleMod"></div><div class="hpbar"><span id="enemyHpBar" style="width:100%"></span></div></div><div class="versus-mark">VS</div><div class="fighter" id="playerFighter"><img alt="Твой персонаж" class="battle-portrait" id="playerBattlePortrait"/><strong id="playerBattleName">Герой</strong><small id="playerBattleTitle">Твой герой</small><div id="playerHp" style="font-size:24px;color:var(--green)">100 HP</div><small id="playerStatus">Блок 0</small><div class="battle-stat-grid" id="playerBattleStats"></div><div class="battle-mod-badge" id="playerBattleMod"></div><div class="hpbar player"><span id="playerHpBar" style="width:100%"></span></div></div></div>
 <div class="combat-picks"><div class="combat-pick"><b>ТВОЁ ДЕЙСТВИЕ</b><span id="playerPick">Ожидает хода</span></div><div class="combat-pick"><b>ДЕЙСТВИЕ СОПЕРНИКА</b><span id="enemyPick">Ожидает хода</span></div></div>
@@ -1082,10 +1231,9 @@ button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px soli
 <nav class="tabs" aria-label="Основная навигация">
   <button class="tab active" data-screen="home"><span class="ico"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span>Главная</button>
   <button class="tab" data-screen="inventory"><span class="ico"><svg viewBox="0 0 24 24"><path d="m12 2 2.8 6.2L21 11l-6.2 2.8L12 20l-2.8-6.2L3 11l6.2-2.8z"/><path d="m19 15 1.2 2.3L22.5 18.5l-2.3 1.2L19 22l-1.2-2.3-2.3-1.2 2.3-1.2z"/></svg></span>Артефакты</button>
-  
   <button class="tab" data-screen="deck"><span class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>Колода</button>
+  <button class="tab" data-screen="arena"><span class="ico"><svg viewBox="0 0 24 24"><path d="m4 4 6.5 6.5M13.5 13.5 20 20M20 4l-6.5 6.5M10.5 13.5 4 20"/><path d="m3 3 5 1-4 4-1-5Zm18 0-5 1 4 4 1-5ZM3 21l5-1-4-4-1 5Zm18 0-5-1 4-4 1 5Z"/></svg></span>Арена</button>
   <button class="tab" data-screen="shop"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M8 8a4 4 0 0 1 8 0M9 12v.01M15 12v.01"/></svg></span>Магазин</button>
-  <button class="tab" data-screen="arena"><span class="ico"><svg viewBox="0 0 24 24"><path d="m4 4 6 2 2 6-2 6-6 2 2-6-2-6zM20 4l-6 2-2 6 2 6 6 2-2-6 2-6z"/><path d="M8 12h8"/></svg></span>Арена</button>
   <button class="tab" data-screen="quests"><span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16l2 2 4-4"/></svg></span>Квесты</button>
 </nav>
 <div class="hero-select-overlay" id="heroSelectOverlay"><div class="hero-select-modal onboarding-modal">
@@ -2189,12 +2337,20 @@ if(Math.random()<.22){const pool=[['stunChance',.04,'шанс оглушения
   };
   const renderBattle=()=>{if(!battle)return;
     const scene=$('#combatScene');
+    $('#sceneEnemy').classList.toggle('is-hero-enemy',!battle.enemy.hero.monsterKind);
     $('#scenePlayerPortrait').src=battleScenePortrait(battle.player);
     $('#sceneEnemyPortrait').src=battleScenePortrait(battle.enemy);
     $('#scenePlayerPortrait').alt=battle.player.hero.name+' в бою';
     $('#sceneEnemyPortrait').alt=battle.enemy.hero.name+' в бою';
     $('#scenePlayerName').textContent=battle.player.hero.name;
     $('#sceneEnemyName').textContent=battle.enemy.hero.name;
+    $('#scenePlayerHp').textContent=`${Math.max(0,Math.ceil(battle.player.hp))} / ${Math.ceil(battle.player.maxHp)} HP`;
+    $('#sceneEnemyHp').textContent=`${Math.max(0,Math.ceil(battle.enemy.hp))} / ${Math.ceil(battle.enemy.maxHp)} HP`;
+    $('#scenePlayerHpFill').style.width=Math.max(0,Math.min(100,battle.player.hp/battle.player.maxHp*100))+'%';
+    $('#sceneEnemyHpFill').style.width=Math.max(0,Math.min(100,battle.enemy.hp/battle.enemy.maxHp*100))+'%';
+    const sceneStatus=f=>{const parts=[`Блок ${Math.max(0,Math.floor(f.block||0))}`];if(f.poisonTurns>0)parts.push('ЯД');if(f.burnTurns>0)parts.push('ОГОНЬ');if(f.bleedTurns>0)parts.push('КРОВОТЕЧЕНИЕ');if(f.stunTurns>0)parts.push('ОГЛУШЁН');return parts.join(' · ');};
+    $('#scenePlayerStatus').textContent=sceneStatus(battle.player);
+    $('#sceneEnemyStatus').textContent=sceneStatus(battle.enemy);
     $('#sceneEncounter').textContent=battle.mode==='bossRush'?`BOSS RUSH · ЭТАП ${battle.bossStage}`:battle.mode==='dungeon'?`ПОДЗЕМЕЛЬЕ · КОМНАТА ${battle.dungeonRoom}`:'АРЕНА · ДУЭЛЬ';
     $('#sceneRound').textContent='РАУНД '+battle.round;
     $('#sceneActionLabel').textContent=battle.ended?(battle.player.hp>0?'ПОБЕДА':'ПОРАЖЕНИЕ'):battle.activeSide==='player'?'ТВОЙ ХОД':'ХОД ПРОТИВНИКА';
@@ -2203,7 +2359,7 @@ if(Math.random()<.22){const pool=[['stunChance',.04,'шанс оглушения
     scene.classList.toggle('is-ended',battle.ended);
     scene.classList.toggle('player-turn',battle.activeSide==='player'&&!battle.ended);
     scene.classList.toggle('enemy-turn',battle.activeSide==='enemy'&&!battle.ended);
-    $('#battleBoard').classList.toggle('is-live',!battle.ended);$('#playerBattlePortrait').src=battle.player.hero.portrait;$('#playerBattleName').textContent=battle.player.hero.name;$('#playerBattleTitle').textContent=battle.player.hero.title||battle.player.hero.role||'Твой герой';$('#enemyBattlePortrait').src=battle.enemy.hero.portrait;$('#enemyBattleName').textContent=battle.enemy.hero.name;$('#enemyBattleTitle').textContent=battle.mode==='bossRush'?`BOSS RUSH · ЭТАП ${battle.bossStage}`:battle.mode==='dungeon'?`ПОДЗЕМЕЛЬЕ · КОМНАТА ${battle.dungeonRoom}`:(battle.enemy.hero.title||battle.enemy.hero.role||'Соперник');$('#enemyFighter').classList.toggle('boss-fighter',battle.mode==='bossRush'||(battle.mode==='dungeon'&&battle.dungeonRoom%4===0));$('#battleTurn').textContent=battle.mode==='bossRush'?`БОСС ${battle.bossStage} · Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход монстра'}`:battle.mode==='dungeon'?`КОМНАТА ${battle.dungeonRoom} · Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход монстра'}`:`Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход соперника'}`;$('#battleInitiative').textContent=`БИЛД 24 · Первый: ${battle.firstSide==='player'?'ты':'соперник'}`;$('#playerHp').textContent=`${Math.max(0,Math.ceil(battle.player.hp))} / ${Math.ceil(battle.player.maxHp)} HP` ;$('#enemyHp').textContent=`${Math.max(0,Math.ceil(battle.enemy.hp))} / ${Math.ceil(battle.enemy.maxHp)} HP`;$('#playerHpBar').style.width=Math.max(0,Math.min(100,battle.player.hp/battle.player.maxHp*100))+'%';$('#enemyHpBar').style.width=Math.max(0,Math.min(100,battle.enemy.hp/battle.enemy.maxHp*100))+'%';$('#playerStatus').textContent=combatStatus(battle.player);$('#enemyStatus').textContent=combatStatus(battle.enemy);$('#playerBattleStats').innerHTML=battleStatsMarkup(battle.player);$('#enemyBattleStats').innerHTML=battleStatsMarkup(battle.enemy);$('#playerBattleMod').innerHTML=`${battle.player.mod.icon||'✦'} ${battle.player.mod.name}<small>${battle.player.mod.desc}</small><small class="all-run-buffs">${(activeRunBuffs().map((m,i)=>`${i+1}. ${m.name}`).join(' · ')||'Без накопленных усилений')}</small>`;$('#enemyBattleMod').innerHTML=`${battle.enemy.mod.icon||'✦'} ${battle.enemy.mod.name}<small>${battle.enemy.mod.desc}</small>`;$('#playerModLabel').textContent=`Твои артефакты: ${battle.player.items.length}`;$('#enemyModLabel').textContent=`Артефакты ${battle.mode==='bossRush'?'босса':'соперника'}: ${battle.enemy.items.length}`;$('#playerPick').textContent=battle.player.lastAction||'Ожидает хода';$('#enemyPick').textContent=battle.enemy.lastAction||'Ожидает хода';$('#heroSkill').textContent=heroSkillReady(battle.player)?`✦ ${battle.player.hero.ability.split('·')[0].toUpperCase()}`:`✦ СПОСОБНОСТЬ · ПЕРЕЗАРЯДКА`;$('#heroSkill').disabled=battle.activeSide!=='player'||battle.ended||battle.acted.includes('player')||battle.player.stunTurns>0||!heroSkillReady(battle.player);$('#battleHand').innerHTML=(battle.player.hand||[]).map((id,i)=>{const c=cardById(id);return c?`<button class="battle-card" data-play-card="${id}" data-card-title="${c.name}" style="animation-delay:${i*55}ms" ${battle.activeSide!=='player'||battle.ended||battle.acted.includes('player')||battle.player.stunTurns>0?'disabled':''}><span class="bc-type">${c.type}${noHitKinds.has(c.kind)?'':c.damageType==='magic'?' · МАГ.':' · ФИЗ.'}</span><span class="bc-icon">${cardIconSvg(c)}</span><b>${c.name}</b><small class="bc-preview">${cardCopyMarkup(c,battle.player,battle.enemy)}</small><em>Удерживай для деталей</em></button>`:''}).join('');$('#battleLog').innerHTML=battle.log.map(x=>'• '+x).join('<br>');renderBattleEffects();};
+    $('#battleBoard').classList.toggle('is-live',!battle.ended);$('#playerBattlePortrait').src=battle.player.hero.portrait;$('#playerBattleName').textContent=battle.player.hero.name;$('#playerBattleTitle').textContent=battle.player.hero.title||battle.player.hero.role||'Твой герой';$('#enemyBattlePortrait').src=battle.enemy.hero.portrait;$('#enemyBattleName').textContent=battle.enemy.hero.name;$('#enemyBattleTitle').textContent=battle.mode==='bossRush'?`BOSS RUSH · ЭТАП ${battle.bossStage}`:battle.mode==='dungeon'?`ПОДЗЕМЕЛЬЕ · КОМНАТА ${battle.dungeonRoom}`:(battle.enemy.hero.title||battle.enemy.hero.role||'Соперник');$('#enemyFighter').classList.toggle('boss-fighter',battle.mode==='bossRush'||(battle.mode==='dungeon'&&battle.dungeonRoom%4===0));$('#battleTurn').textContent=battle.mode==='bossRush'?`БОСС ${battle.bossStage} · Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход монстра'}`:battle.mode==='dungeon'?`КОМНАТА ${battle.dungeonRoom} · Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход монстра'}`:`Раунд ${battle.round} · ${battle.activeSide==='player'?'Твой ход':'Ход соперника'}`;$('#battleInitiative').textContent=`БИЛД 25 · Первый: ${battle.firstSide==='player'?'ты':'соперник'}`;$('#playerHp').textContent=`${Math.max(0,Math.ceil(battle.player.hp))} / ${Math.ceil(battle.player.maxHp)} HP` ;$('#enemyHp').textContent=`${Math.max(0,Math.ceil(battle.enemy.hp))} / ${Math.ceil(battle.enemy.maxHp)} HP`;$('#playerHpBar').style.width=Math.max(0,Math.min(100,battle.player.hp/battle.player.maxHp*100))+'%';$('#enemyHpBar').style.width=Math.max(0,Math.min(100,battle.enemy.hp/battle.enemy.maxHp*100))+'%';$('#playerStatus').textContent=combatStatus(battle.player);$('#enemyStatus').textContent=combatStatus(battle.enemy);$('#playerBattleStats').innerHTML=battleStatsMarkup(battle.player);$('#enemyBattleStats').innerHTML=battleStatsMarkup(battle.enemy);$('#playerBattleMod').innerHTML=`${battle.player.mod.icon||'✦'} ${battle.player.mod.name}<small>${battle.player.mod.desc}</small><small class="all-run-buffs">${(activeRunBuffs().map((m,i)=>`${i+1}. ${m.name}`).join(' · ')||'Без накопленных усилений')}</small>`;$('#enemyBattleMod').innerHTML=`${battle.enemy.mod.icon||'✦'} ${battle.enemy.mod.name}<small>${battle.enemy.mod.desc}</small>`;$('#playerModLabel').textContent=`Твои артефакты: ${battle.player.items.length}`;$('#enemyModLabel').textContent=`Артефакты ${battle.mode==='bossRush'?'босса':'соперника'}: ${battle.enemy.items.length}`;$('#playerPick').textContent=battle.player.lastAction||'Ожидает хода';$('#enemyPick').textContent=battle.enemy.lastAction||'Ожидает хода';$('#heroSkill').textContent=heroSkillReady(battle.player)?`✦ ${battle.player.hero.ability.split('·')[0].toUpperCase()}`:`✦ СПОСОБНОСТЬ · ПЕРЕЗАРЯДКА`;$('#heroSkill').disabled=battle.activeSide!=='player'||battle.ended||battle.acted.includes('player')||battle.player.stunTurns>0||!heroSkillReady(battle.player);$('#battleHand').innerHTML=(battle.player.hand||[]).map((id,i)=>{const c=cardById(id);return c?`<button class="battle-card" data-play-card="${id}" data-card-title="${c.name}" style="animation-delay:${i*55}ms" ${battle.activeSide!=='player'||battle.ended||battle.acted.includes('player')||battle.player.stunTurns>0?'disabled':''}><span class="bc-type">${c.type}${noHitKinds.has(c.kind)?'':c.damageType==='magic'?' · МАГ.':' · ФИЗ.'}</span><span class="bc-icon">${cardIconSvg(c)}</span><b>${c.name}</b><small class="bc-preview">${cardCopyMarkup(c,battle.player,battle.enemy)}</small><em>Удерживай для деталей</em></button>`:''}).join('');$('#battleLog').innerHTML=battle.log.map(x=>'• '+x).join('<br>');renderBattleEffects();};
   const playBattleMotion=(side,kind='attack')=>{
     const actor=$(side==='player'?'#playerFighter':'#enemyFighter'),target=$(side==='player'?'#enemyFighter':'#playerFighter');
     const sceneActor=$(side==='player'?'#scenePlayer':'#sceneEnemy'),sceneTarget=$(side==='player'?'#sceneEnemy':'#scenePlayer');
@@ -2301,6 +2457,8 @@ if(Math.random()<.22){const pool=[['stunChance',.04,'шанс оглушения
   };
 
   for(const id of ['playerFighter','enemyFighter']){const el=$('#'+id);el.setAttribute('role','button');el.setAttribute('tabindex','0');el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showFighterDetails(battle[id==='playerFighter'?'player':'enemy']);}});}
+  $('#scenePlayerHud').addEventListener('click',()=>showFighterDetails(battle?.player));
+  $('#sceneEnemyHud').addEventListener('click',()=>showFighterDetails(battle?.enemy));
   const playerAct=action=>{if(!battle||battle.ended||battle.activeSide!=='player'||battle.acted.includes('player')||battle.player.stunTurns>0)return;const f=battle.player,t=battle.enemy;const snapshot={player:actionSnapshot(battle.player),enemy:actionSnapshot(battle.enemy)};const before={actorHp:f.hp,actorBlock:f.block,targetHp:t.hp,targetBlock:t.block};let label=actionLabel(action);if(action==='skill'){if(!useHeroSkill(f))return;}else if(action.startsWith('card:')){const id=action.slice(5);if(!f.hand.includes(id))return;label=cardById(id)?.name||label;if(!applyCard(f,t,id))return;f.hand=f.hand.filter(x=>x!==id);}else{if(!applyAction(f,t,action))return;}f.lastAction=makeActionSummary(f,t,label,before);showActionReport(f,t,label,snapshot);battle.acted.push('player');renderBattle();playBattleMotion('player',action==='skill'?'skill':action.startsWith('card:')?(cardById(action.slice(5))?.kind||'attack'):action);setTimeout(nextActor,1150);};
   const aiChooseCard=(allowSkill=false)=>{
     const f=battle.enemy,t=battle.player,hand=f.hand||[];
