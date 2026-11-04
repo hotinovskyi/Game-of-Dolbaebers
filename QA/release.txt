@@ -1,0 +1,21 @@
+PASS Defense upgrades reduce physical damage immediately
+PASS Invulnerability lasts one opposing action, including multi-hit cards
+PASS A skipped enemy turn also expires invulnerability
+PASS Phoenix revives once at 35 percent
+PASS Active percent shields use HP amount rather than defense times HP
+PASS The rage item actually empowers two cards and only once per card
+PASS An extra-card item draws safely from the frozen deck
+PASS Changing equipment does not change the item during a battle
+PASS No player action or active item can bypass the shop
+PASS Invalid save values and duplicate numeric UIDs are normalized
+PASS New profiles have release resources and old gold remains intact
+PASS Battle snapshot omits image payloads and restores stats and hand
+PASS Restoring the shop does not repeat its round reward
+PASS Corrupt battle cannot start
+PASS Combo grows only after an actual HP hit, defensive cards reset it
+PASS Higher combo applies 6 percent per stack without changing safety cap
+PASS Stat swap empowers the next action and then restores both stats
+PASS Chronos grants a usable fourth card next round
+PASS Rage boosts an entire triple attack and spends just one charge
+PASS The shared direct damage buff is exactly eight percent
+20 release regression tests passed.

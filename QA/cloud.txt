@@ -1,0 +1,9 @@
+PASS Storage failure is handled without interrupting gameplay
+PASS Failed cloud writes remain dirty for retry
+PASS Successful write uses acknowledged revision
+PASS Revision conflict stops overwriting the other device
+PASS Expired auth stops repeated unauthorized writes
+PASS Initial failed upload never reports successful migration
+PASS A profile switch cannot replace an active battle
+PASS An absent auth token is rejected
+8 cloud fault tests passed.

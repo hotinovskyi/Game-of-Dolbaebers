@@ -1,18 +1,9 @@
 {
-  "version": "0.34.1",
-  "basedOn": "0.34.0",
+  "version": "0.35.0",
+  "basedOn": "0.34.1",
   "entry": "index.html",
+  "scope": "offline PvE + cloud client; no PvP server",
   "files": [
-    {
-      "name": "QA.txt",
-      "size": 1337,
-      "sha256": "982363f34db52777b05052d774eb1893ad8cfc4774fd044d8a7e1dae36515334"
-    },
-    {
-      "name": "README.txt",
-      "size": 1373,
-      "sha256": "878717394578cae2b3d568ad15df313e8d1d49317e0eb6250aed3d2e3a4808f2"
-    },
     {
       "name": "assets/battlefield-citadel.jpg",
       "size": 220095,
@@ -22,6 +13,86 @@
       "name": "assets/battlefield-citadel.svg",
       "size": 5223,
       "sha256": "4172139606e5bd28a77f7fcedff113b513774a4722a05d3b0c8767746c9051bb"
+    },
+    {
+      "name": "assets/embedded-1bb6e6cb6a18.png",
+      "size": 194269,
+      "sha256": "f234dfd0a802ca571a741a02ed6df747d27d9e6ed712959b712be6b521487a06"
+    },
+    {
+      "name": "assets/embedded-36d229b6c83c.png",
+      "size": 207305,
+      "sha256": "25083651ef9a523baf097846c8834a2ce9fa29a1c2b08b4155a40a9b66761ec7"
+    },
+    {
+      "name": "assets/embedded-36ed428a02f2.png",
+      "size": 221909,
+      "sha256": "03508d4004026d8bbdf7adffa3e0518a98b05ff62ceda949ddace9a4261f60ff"
+    },
+    {
+      "name": "assets/embedded-3872b9bcc289.png",
+      "size": 856428,
+      "sha256": "044fc267fe91982006790ce087f8053748c59d154e44de8e9c2c733b84d68748"
+    },
+    {
+      "name": "assets/embedded-3e9d2a8e3641.png",
+      "size": 223957,
+      "sha256": "82a1a3315b97035c9a794133f6671b0ef7a8008e34f57c9d7c763c98499e8eaf"
+    },
+    {
+      "name": "assets/embedded-4089ee16f716.png",
+      "size": 213772,
+      "sha256": "7910bc68b9df5331725758f5b5d4cf70ec6b3f50bc44de28dd4c2abea11d9d6f"
+    },
+    {
+      "name": "assets/embedded-6affb43d3d0a.png",
+      "size": 61480,
+      "sha256": "e79830e350da01164411df89c95c7a2b6da0c30640308f732f174023d78d3884"
+    },
+    {
+      "name": "assets/embedded-6da65128f4cd.png",
+      "size": 214048,
+      "sha256": "a8e416f60cead1d9d7285367e1b246ea23c82378763bc479f41ba3c665abef8a"
+    },
+    {
+      "name": "assets/embedded-8b5abed31e19.jpg",
+      "size": 220095,
+      "sha256": "acc629076df7ed207d9f0d5eaf2dafcd4ba9dab563cb051e655d9842a444b7f0"
+    },
+    {
+      "name": "assets/embedded-9663dd577d32.png",
+      "size": 73919,
+      "sha256": "878507e6692f9920dc5ecdbb81bf2e8707b880ca90d29fd4b544245d12687197"
+    },
+    {
+      "name": "assets/embedded-99bced564163.png",
+      "size": 65447,
+      "sha256": "226142430e2068f39a37b476e59514324b7a06f2c90e76df0c9f664ae675bb88"
+    },
+    {
+      "name": "assets/embedded-9f7f1a09bf3d.png",
+      "size": 66471,
+      "sha256": "120026c431a2779266a0582db88a9a1871a8b2fad9eb9872cd70aa40b6d34b1d"
+    },
+    {
+      "name": "assets/embedded-9fcdd686d19a.png",
+      "size": 212444,
+      "sha256": "d02b052639d32742a2125a43c5cc700c5294d92ce73576dc6aa7cc39e4e0180b"
+    },
+    {
+      "name": "assets/embedded-aa4336a18d84.png",
+      "size": 214521,
+      "sha256": "ab6b1a04f0767a56b1fd96c4129f184fd24bd16ac7367ba65604c28f18686fc3"
+    },
+    {
+      "name": "assets/embedded-b993db0dee4d.png",
+      "size": 72602,
+      "sha256": "48a1cffbcd367737c774a3f4fe889cbe3871f0aac37208d59d378aec01a25ca2"
+    },
+    {
+      "name": "assets/embedded-c6df6b3e590c.png",
+      "size": 64380,
+      "sha256": "6a24500be4aa32aa7e5f4c61bce7395d04cc02a8147ba878c59bdf773359eabd"
     },
     {
       "name": "assets/heroes/01_MokeiXD.png",
@@ -54,9 +125,64 @@
       "sha256": "393f12528ef333df1701512d4c4337663951bdb7232a3b51b65ad413ea0691f5"
     },
     {
+      "name": "CHANGELOG.md",
+      "size": 4452,
+      "sha256": "e9ec3ff8c73bb156604de72b9e3880cfbe1d351e6130ee1d0c68adf0ea6a6e45"
+    },
+    {
       "name": "index.html",
-      "size": 4873726,
-      "sha256": "d50f490894f77af640c7058a9d8badc033291a678e15654a553970aa8d6cdc9d"
+      "size": 557767,
+      "sha256": "70401691a50837eeb32d930195ae3f5f33608d3ee28920f19139c9d72306d16e"
+    },
+    {
+      "name": "ONLINE_INTEGRATION.md",
+      "size": 4435,
+      "sha256": "01e508c679677432d850d2853cd132583a3030a61293e65101435bbaa744eea5"
+    },
+    {
+      "name": "preview.png",
+      "size": 281744,
+      "sha256": "583322dca43563ac486f1788a8b50b857519a15180bef3aebeaa8a69a0a60372"
+    },
+    {
+      "name": "QA/browser-results.json",
+      "size": 6862,
+      "sha256": "28e69711254eadb17f654c796af34baf5731df78a05443161640f3e38c4567f3"
+    },
+    {
+      "name": "QA/browser.txt",
+      "size": 40,
+      "sha256": "2fae70add69e1ee707c788a61fc16ef6ab261f7a5cfd5d427b9e61eb55de31b2"
+    },
+    {
+      "name": "QA/cloud.txt",
+      "size": 452,
+      "sha256": "983a07964e11968ab4748b7c10cdef80fc421f1bd15664c8c2a030eea6674fc3"
+    },
+    {
+      "name": "QA/regression.txt",
+      "size": 3835,
+      "sha256": "313b4808dde46e20f6e747dfe4d785357ad241aa8a325b96d917ccae31ddf251"
+    },
+    {
+      "name": "QA/release.txt",
+      "size": 1273,
+      "sha256": "000e86e99286bc6b1fe1649559de45083db1896cb3adaf77aa9264bd286b72de"
+    },
+    {
+      "name": "QA/REPORT.md",
+      "size": 2503,
+      "sha256": "e084220ebbd54c9a7a793eb19b3ff160af94a4f8e920cf5e59ed68c41e1e1ab5"
+    },
+    {
+      "name": "QA/simulation.json",
+      "size": 5974,
+      "sha256": "d288efa529a24c800f84403ed3d078d00c94eecdea26142f6c73ef20d7dfaaa3"
+    },
+    {
+      "name": "README.txt",
+      "size": 3204,
+      "sha256": "654fd2c02091e9cc401a6025fcad4abee574ef2d5c3d2decd67224fa2d729144"
     }
   ]
 }

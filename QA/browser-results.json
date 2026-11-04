@@ -1,0 +1,319 @@
+{
+  "results": [
+    "Hero selection and confirmation",
+    {
+      "width": 320,
+      "height": 568,
+      "layout": {
+        "width": 320,
+        "scroll": 305,
+        "overflow": 54,
+        "nav": 492.8125,
+        "controls": [
+          {
+            "id": "SPELL_002",
+            "top": 256.0625,
+            "bottom": 364.0625,
+            "hit": true
+          },
+          {
+            "id": "EFF_001",
+            "top": 256.0625,
+            "bottom": 364.0625,
+            "hit": true
+          },
+          {
+            "id": "SUP_001",
+            "top": 256.0625,
+            "bottom": 364.0625,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 368.0625,
+            "bottom": 406.0625,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 368.0625,
+            "bottom": 406.0625,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 436.5625,
+            "bottom": 470.5625,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "layout": {
+        "width": 360,
+        "scroll": 345,
+        "overflow": 0,
+        "nav": 560.8125,
+        "controls": [
+          {
+            "id": "ATK_001",
+            "top": 244.21875,
+            "bottom": 352.21875,
+            "hit": true
+          },
+          {
+            "id": "DEF_002",
+            "top": 244.21875,
+            "bottom": 352.21875,
+            "hit": true
+          },
+          {
+            "id": "REA_001",
+            "top": 244.21875,
+            "bottom": 352.21875,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 356.21875,
+            "bottom": 390.21875,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 356.21875,
+            "bottom": 390.21875,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 420.71875,
+            "bottom": 454.71875,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "layout": {
+        "width": 390,
+        "scroll": 375,
+        "overflow": 0,
+        "nav": 764.8125,
+        "controls": [
+          {
+            "id": "EFF_001",
+            "top": 406.21875,
+            "bottom": 562.21875,
+            "hit": true
+          },
+          {
+            "id": "ATK_005",
+            "top": 406.21875,
+            "bottom": 562.21875,
+            "hit": true
+          },
+          {
+            "id": "SUP_001",
+            "top": 406.21875,
+            "bottom": 562.21875,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 568.21875,
+            "bottom": 606.21875,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 568.21875,
+            "bottom": 606.21875,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 640.71875,
+            "bottom": 676.71875,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "layout": {
+        "width": 430,
+        "scroll": 415,
+        "overflow": 0,
+        "nav": 852.8125,
+        "controls": [
+          {
+            "id": "SUP_001",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "EFF_001",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "SUP_003",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 558.625,
+            "bottom": 596.625,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 558.625,
+            "bottom": 596.625,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 631.125,
+            "bottom": 667.125,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "layout": {
+        "width": 768,
+        "scroll": 753,
+        "overflow": 0,
+        "nav": 944.8125,
+        "controls": [
+          {
+            "id": "EFF_009",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "DEF_008",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "EFF_001",
+            "top": 396.625,
+            "bottom": 552.625,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 558.625,
+            "bottom": 596.625,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 558.625,
+            "bottom": 596.625,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 630.125,
+            "bottom": 666.125,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "layout": {
+        "width": 1366,
+        "scroll": 1351,
+        "overflow": 54,
+        "nav": 688.8125,
+        "controls": [
+          {
+            "id": "SUP_010",
+            "top": 396.625,
+            "bottom": 544.625,
+            "hit": true
+          },
+          {
+            "id": "SUP_001",
+            "top": 396.625,
+            "bottom": 544.625,
+            "hit": true
+          },
+          {
+            "id": "ATK_004",
+            "top": 396.625,
+            "bottom": 544.625,
+            "hit": true
+          },
+          {
+            "id": "heroSkill",
+            "top": 550.625,
+            "bottom": 588.625,
+            "hit": true
+          },
+          {
+            "id": "focusMana",
+            "top": 550.625,
+            "bottom": 588.625,
+            "hit": true
+          },
+          {
+            "id": "activeItemUse",
+            "top": 622.125,
+            "bottom": 658.125,
+            "hit": true
+          }
+        ]
+      },
+      "restored": true
+    },
+    {
+      "activeItems": 30,
+      "shop": "percentages and two-purchase limit verified"
+    },
+    {
+      "mode": "bossRush",
+      "rewardOnce": true,
+      "restored": true
+    },
+    {
+      "mode": "dungeon",
+      "rewardOnce": true,
+      "restored": true
+    },
+    {
+      "mode": "draft",
+      "rewardOnce": true,
+      "restored": true
+    }
+  ],
+  "errors": []
+}

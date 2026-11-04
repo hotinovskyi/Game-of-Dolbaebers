@@ -1,0 +1,61 @@
+PASS All six heroes gain exactly 1000 base HP
+PASS Resistance on existing armor actually changes final stats
+PASS Critical modifier applies once and UI caps match combat
+PASS Ten extreme offensive items remain finite and bounded
+PASS Card damage affects cards once, not the basic action
+PASS All block cards receive equipment block multipliers
+PASS Every hit, echo and passive shares the 40% action budget
+PASS A lethal target cannot grant overkill lifesteal
+PASS Drain heals only actual HP damage; a full block gives no healing
+PASS Parried drain does not heal
+PASS Periodic damage cannot be undone by automatic regeneration after death
+PASS Revival happens only once with the described 25% HP
+PASS Stun cannot lock a target out of consecutive actions
+PASS Fortress protection survives round transition and covers the next full action
+PASS Cleanse removes marks and all damage statuses
+PASS DOT potency scales with its elemental stat
+PASS Counterattack death stops remaining hits
+PASS Passives count actions, not three hits from one card
+PASS Every card resolves with every hero without invalid numbers
+PASS Existing custom deck stays custom after reload, including an unfinished deck
+PASS Next item UID never collides with existing inventory
+PASS Enemy stats do not copy player health and damage
+PASS Dungeon buffs survive victory
+PASS Round limit compares remaining HP percentages
+PASS Battle completion and quest rewards are idempotent
+PASS Extracted images remain byte-identical to previous release
+PASS Flat reflection triggers once per opposing action, including triple hits
+PASS Run modifiers preserve revival and multiply bleed potency
+PASS Extremely long modifier stacks saturate at caps rather than the minimum
+PASS Persisted run buffs use current catalog rules without dropping unknown buffs
+PASS Every card and artifact keeps a unique ID
+PASS Eight expansion cards resolve for either side
+PASS Critical ward protects every hit and expires after the attack
+PASS Trauma reduces healing and is removable with cleanse
+PASS Recycling cannot manufacture block from overhealing
+PASS Dispel removes temporary defenses before dealing damage
+PASS Initiative is a reproducible symmetric coin flip
+PASS Actual battle start uses the coin flip and equal ten-card pools
+PASS Five chosen cards are completed to ten unique cards
+PASS Legacy ten-card selections migrate to five without changing inventory
+PASS Snowball starts after a successful action and strengthens the next attack
+PASS Triple attacks accumulate snowball once; block and defense give no stacks
+PASS Stacked snowball artifacts respect their shared cap and reset for each fight
+PASS Battle pool stays frozen when the menu selection changes
+PASS Status damage items activate only against their own matching status
+PASS Stacked status multipliers cap per status and total at +50%
+PASS Action report counters track actual HP damage separately from healing
+PASS Physical resistance reduces physical attacks but not magic
+PASS Magical attacks ignore physical armor and respect magic resistance
+PASS Physical penetration cannot bypass magic resistance
+PASS Typed DOT respects resistance and ignores block
+PASS Resistance and magic offense caps stay finite with ten artifacts
+PASS Spell cards use magic damage and physical cards remain physical
+PASS Resistance still counters extreme damage that used to saturate the HP cap
+PASS Forced double strike is two full hits with one passive action count
+PASS Double strike can break a shield even if the first hit dealt no HP damage
+PASS Full double strike stays within shared raw and HP budgets
+PASS Stunned player consumes exactly one action and cannot submit a card
+PASS Stunned enemy cannot act through the scheduled AI handler
+PASS DOT animations preserve the actual element for each simultaneous status
+60 regression tests passed.
