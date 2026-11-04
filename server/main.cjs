@@ -12,12 +12,12 @@ function createApp({database=path.resolve(process.env.DATA_DIR||path.join(__dirn
  const server=http.createServer(async(req,res)=>{
   try{
    const url=new URL(req.url,'http://localhost'),ip=req.socket.remoteAddress||'unknown';
-   if(url.pathname==='/healthz'&&req.method==='GET')return send(res,200,{ok:true,version:'0.36.0',protocol:1});
+   if(url.pathname==='/healthz'&&req.method==='GET')return send(res,200,{ok:true,version:'0.36.1',protocol:1});
    if(url.pathname.startsWith('/api/')){
     // This service serves the game and API together. Cross-origin browser writes are not accepted.
     if(req.headers.origin){const allowed=publicOrigin||[...['http:','https:'].map(protocol=>protocol+'//'+req.headers.host)];if(Array.isArray(allowed)?!allowed.includes(req.headers.origin):req.headers.origin!==allowed)throw new GameError(403,'Этот адрес игры не разрешён.');}
     limit('ip:'+ip,900,60000);
-    if(url.pathname==='/api/v1/pvp/meta'&&req.method==='GET')return send(res,200,{protocol:1,version:'0.36.0',rulesHash,catalog,turnSeconds:turnMs/1000,features:{guestSessions:true,privateRooms:true,pveInventory:false,activeItems:false,roundShop:false}});
+    if(url.pathname==='/api/v1/pvp/meta'&&req.method==='GET')return send(res,200,{protocol:1,version:'0.36.1',rulesHash,catalog,turnSeconds:turnMs/1000,features:{guestSessions:true,privateRooms:true,pveInventory:false,activeItems:false,roundShop:false}});
     if(url.pathname==='/api/v1/pvp/guest'&&req.method==='POST'){limit('guest:'+ip,8,60000);const data=await body(req);return send(res,201,service.register(data.name));}
     const token=/^Bearer ([A-Za-z0-9_-]+)$/.exec(req.headers.authorization||'')?.[1],player=service.authenticate(token);
     limit('player:'+player.id,300,60000);
@@ -43,3 +43,4 @@ function createApp({database=path.resolve(process.env.DATA_DIR||path.join(__dirn
 }
 if(require.main===module){const app=createApp(),port=Number(process.env.PORT||3000);app.server.listen(port,process.env.HOST||'0.0.0.0',()=>console.log('Game of Dolbaebers PvP listening on port '+port));const stop=()=>{app.close().then(()=>process.exit(0));setTimeout(()=>process.exit(1),10000).unref()};process.once('SIGTERM',stop);process.once('SIGINT',stop);}
 module.exports={createApp};
+

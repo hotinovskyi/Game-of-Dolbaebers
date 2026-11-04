@@ -1,0 +1,5 @@
+PASS complete battle #quickBattle 21
+PASS complete battle #bossRushStart 17
+PASS complete battle #dungeonStart 8
+PASS complete battle #draftStart 25
+ALL COMPLETE BATTLES PASSED

@@ -1,0 +1,23 @@
+{
+  "resetGold": 20000,
+  "chestGains": {
+    "passive": 6,
+    "active": 4,
+    "id": "act02"
+  },
+  "shop": {
+    "round": 1,
+    "side": "player",
+    "mana": 6,
+    "damage": 182.60000000000002,
+    "defense": 81.76,
+    "buys": 2,
+    "coins": 4620
+  },
+  "viewports": [
+    320,
+    390,
+    1366
+  ],
+  "errors": []
+}

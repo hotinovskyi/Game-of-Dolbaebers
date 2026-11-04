@@ -1,0 +1,1 @@
+PASS reset 20k, empty collection, both chest reward types, ownership reload, manual shop, limits and automatic next round

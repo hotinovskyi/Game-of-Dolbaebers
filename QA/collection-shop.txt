@@ -1,0 +1,9 @@
+PASS New profile starts without passive or active items
+PASS Legacy debug full active set is removed while earned passive gear and gold remain
+PASS Earned active ownership survives reload and sanitization
+PASS Chests award both kinds, exactly once, with no duplicate active unlocks
+PASS An already complete active collection yields normal artifacts instead of empty rewards
+PASS Owned and free chests both use the shared reward pipeline
+PASS A new round advances directly to play and replenishes the hand
+PASS Purchases are available only before a living player action
+8 collection/shop tests passed.

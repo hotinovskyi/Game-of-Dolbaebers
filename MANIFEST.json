@@ -1,6 +1,6 @@
 {
-  "version": "0.36.0",
-  "basedOn": "0.35.1",
+  "version": "0.36.1",
+  "basedOn": "0.36.0",
   "entry": "index.html",
   "serverEntry": "server/main.cjs",
   "protocol": 1,
@@ -136,14 +136,19 @@
       "sha256": "393f12528ef333df1701512d4c4337663951bdb7232a3b51b65ad413ea0691f5"
     },
     {
+      "name": "CHANGELOG.md",
+      "size": 2198,
+      "sha256": "57b15939741266d830ea667ed4e609227370b5578219127dc43f6342e8494dfb"
+    },
+    {
       "name": "Dockerfile",
       "size": 300,
       "sha256": "a19aa4e22ed65d24e830ea31c2a8b63cea60c456354441070f3202fd9673b45c"
     },
     {
       "name": "index.html",
-      "size": 564167,
-      "sha256": "5692be267153bac6622c6566f433cb53ef1daa7920ec4ea5ef4baf7bf6513813"
+      "size": 569441,
+      "sha256": "09af54bddd4ff07459c5bac94237f4db71d3f302b1bb67cbb0dbec6959394651"
     },
     {
       "name": "ONLINE_SETUP_0.36.0.md",
@@ -153,12 +158,12 @@
     {
       "name": "package.json",
       "size": 376,
-      "sha256": "edf2b7cfb46c794052e303b5b548d005b707b2832bf3cf608ad6d07590355ebc"
+      "sha256": "ff123ba14dc0ca35d7d952fb529a2282b5cc245acec9396c7289bec0a29022ec"
     },
     {
       "name": "preview.png",
-      "size": 114812,
-      "sha256": "77933b70233678ea117b0d7323d6b5556dd535ba568e395d77b266aa71fe8fe4"
+      "size": 274011,
+      "sha256": "0e69a090684cda63b39cc5f147df49a678d7e0ae18d0c502cdae98d053bac792"
     },
     {
       "name": "pvp.css",
@@ -171,9 +176,29 @@
       "sha256": "ea072de4eabb4f678d867cc33124ad2a5ba2a0affb23b6678c93db02d4f4ea9e"
     },
     {
+      "name": "QA/browser-results.json",
+      "size": 324,
+      "sha256": "3e27f70edb0f0d5692395cdae6d9e3a4a4310b394776db945372e96ce7d11989"
+    },
+    {
+      "name": "QA/browser-shop-chests.txt",
+      "size": 122,
+      "sha256": "a6ae3e6a15f54e740f5aa969eeb63ea4b986d7312da45cc75fa0f7090946d6ac"
+    },
+    {
       "name": "QA/cloud-client.txt",
       "size": 452,
       "sha256": "983a07964e11968ab4748b7c10cdef80fc421f1bd15664c8c2a030eea6674fc3"
+    },
+    {
+      "name": "QA/collection-shop.txt",
+      "size": 601,
+      "sha256": "cd9ff3e96e62f7a0aed4fc95e7b47f1dac00c2830345571e919c85ac6fe0cea8"
+    },
+    {
+      "name": "QA/full-pve-battles.txt",
+      "size": 177,
+      "sha256": "63567976975f020d9dbc2ae66e2a5f7cca84b7140e199e94f30dbd6222bcbb2f"
     },
     {
       "name": "QA/offline-regression.txt",
@@ -186,44 +211,34 @@
       "sha256": "000e86e99286bc6b1fe1649559de45083db1896cb3adaf77aa9264bd286b72de"
     },
     {
-      "name": "QA/pvp-fight-0.png",
-      "size": 114812,
-      "sha256": "77933b70233678ea117b0d7323d6b5556dd535ba568e395d77b266aa71fe8fe4"
-    },
-    {
-      "name": "QA/pvp-fight-1.png",
-      "size": 72496,
-      "sha256": "f87c46220f40b7b35c14cb333d56ce0b7922eebf383b779a17367b215190df42"
-    },
-    {
-      "name": "QA/pvp-lobby-0.png",
-      "size": 78646,
-      "sha256": "35cba09b065a8599ab53444bb0233cd52805c70b070a3d36301e4ec0a706da4d"
-    },
-    {
       "name": "QA/REPORT.md",
-      "size": 1852,
-      "sha256": "62bbeeca42e37c9532aa7670b0251fdfd7de1121430ef99279cf6254a238ce9e"
+      "size": 1621,
+      "sha256": "5908bdd9f65bf3bc3d4fb8636dac062b20f24e5493de546b6addf8fd5507d72d"
     },
     {
       "name": "QA/server-tests.txt",
-      "size": 1198,
-      "sha256": "feb28a362db9fa0bd2ebac63eb4644d4ba1f5053ce6d9021adccf2eb7b8835a9"
+      "size": 1193,
+      "sha256": "ac65222ab5f1ef41d3a7d3064ea4e4a8cbd420bdf73639e448dce434c21c43e8"
     },
     {
-      "name": "QA/two-browser-duel.txt",
-      "size": 135,
-      "sha256": "084362e8b5791ab0b6e9ba20134d5a87e7dd3497b56b4bbca78e10abc6bedca0"
+      "name": "QA/v0361-battle-shop.png",
+      "size": 262144,
+      "sha256": "de5fd2792a0162cd282da867fd2e288dfe5caf6ca76782d029cbd6cc9a60f1e3"
     },
     {
-      "name": "QA/two-browser-results.json",
-      "size": 455,
-      "sha256": "403df179ab0c784b81bbabbfa2cbee4acb21398059814743bd24d7e795693c58"
+      "name": "QA/v0361-chest-drops.png",
+      "size": 86840,
+      "sha256": "34909085c0da67b713a46e67013c7139637664a9d7a8432ead26b2855d9d6dd9"
+    },
+    {
+      "name": "QA/v0361-empty-collection.png",
+      "size": 141380,
+      "sha256": "9379166e61c8814b1acc1bcc914adb411c98d4ea770d4a0490e59fabe2c14910"
     },
     {
       "name": "README.md",
-      "size": 3413,
-      "sha256": "b318304090379d79e4e5e6de0e8cac41269afc63b54577bb7f14a58bc1967010"
+      "size": 4648,
+      "sha256": "599b7e6708a121cfa45ca26b40640286e46b3a2c26498dfd2b892d706d54963a"
     },
     {
       "name": "render.yaml",
@@ -247,8 +262,8 @@
     },
     {
       "name": "server/main.cjs",
-      "size": 6387,
-      "sha256": "9e635877b2bdaf247fb86994d5edc45b4804c7ef90193aa604c5561a8f2da1d7"
+      "size": 6389,
+      "sha256": "c80b166463644bf85edf013af3c04927c29b09e9b94fe6a4f3e38b0186654aab"
     },
     {
       "name": "server/service.cjs",
