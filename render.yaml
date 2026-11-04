@@ -1,0 +1,21 @@
+# Optional template. A persistent disk requires a paid Render service.
+# Creating a service and accepting any charges is a separate user action.
+services:
+  - type: web
+    name: game-of-dolbaebers
+    runtime: node
+    plan: starter
+    buildCommand: node --version
+    startCommand: node server/main.cjs
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: duel-state
+      mountPath: /var/data
+      sizeGB: 1

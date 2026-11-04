@@ -1,8 +1,20 @@
 {
-  "version": "0.35.1",
-  "basedOn": "0.35.0",
+  "version": "0.36.0",
+  "basedOn": "0.35.1",
   "entry": "index.html",
+  "serverEntry": "server/main.cjs",
+  "protocol": 1,
   "files": [
+    {
+      "name": ".dockerignore",
+      "size": 71,
+      "sha256": "5a00f3e23d4c6a291fc7818130530fbd96612aa638b327ccc260f0b1680cf1b0"
+    },
+    {
+      "name": ".gitignore",
+      "size": 67,
+      "sha256": "f9ddf5f9c7597a2bec78cc988404d1eb65dc4d6106a67b7a44693d7d62bb211f"
+    },
     {
       "name": "assets/battlefield-citadel.jpg",
       "size": 220095,
@@ -124,69 +136,144 @@
       "sha256": "393f12528ef333df1701512d4c4337663951bdb7232a3b51b65ad413ea0691f5"
     },
     {
-      "name": "CHANGELOG.md",
-      "size": 5750,
-      "sha256": "07abdf15077140ee439cc5e740c6cfc287a0812b19ae6a0a9d0263e2b09f4395"
+      "name": "Dockerfile",
+      "size": 300,
+      "sha256": "a19aa4e22ed65d24e830ea31c2a8b63cea60c456354441070f3202fd9673b45c"
     },
     {
       "name": "index.html",
-      "size": 563674,
-      "sha256": "fbc4421e92af8bcf8804adc368b01708c2a389d38ee817857cfa17ecfe90d162"
+      "size": 564167,
+      "sha256": "5692be267153bac6622c6566f433cb53ef1daa7920ec4ea5ef4baf7bf6513813"
     },
     {
-      "name": "ONLINE_INTEGRATION.md",
-      "size": 4435,
-      "sha256": "01e508c679677432d850d2853cd132583a3030a61293e65101435bbaa744eea5"
+      "name": "ONLINE_SETUP_0.36.0.md",
+      "size": 9462,
+      "sha256": "fd6839a58c90d1ea442669abfd9158111d7c13d08f62a7412080d95c8a53c996"
+    },
+    {
+      "name": "package.json",
+      "size": 376,
+      "sha256": "edf2b7cfb46c794052e303b5b548d005b707b2832bf3cf608ad6d07590355ebc"
     },
     {
       "name": "preview.png",
-      "size": 275791,
-      "sha256": "9f9a7377574b96b19a5dbba33c43ddf057d82afb744a9e86c73c02003326e91c"
+      "size": 114812,
+      "sha256": "77933b70233678ea117b0d7323d6b5556dd535ba568e395d77b266aa71fe8fe4"
     },
     {
-      "name": "QA/browser-results.json",
-      "size": 441,
-      "sha256": "18a84cadb811bd226be1cc74d8c7b0a2742ac4934ad9b176dc4e337c17afad6d"
+      "name": "pvp.css",
+      "size": 10496,
+      "sha256": "fc7515be04a9abd59e76f161fe019e40b3acec5ba5e7818617d7d947595284a8"
     },
     {
-      "name": "QA/browser.txt",
-      "size": 95,
-      "sha256": "50b74f73bd4618daf4d1000d71e5ce700ad5e830c207b29a7a67ace7e3ecba4c"
+      "name": "pvp.js",
+      "size": 23952,
+      "sha256": "ea072de4eabb4f678d867cc33124ad2a5ba2a0affb23b6678c93db02d4f4ea9e"
     },
     {
-      "name": "QA/cloud.txt",
+      "name": "QA/cloud-client.txt",
       "size": 452,
       "sha256": "983a07964e11968ab4748b7c10cdef80fc421f1bd15664c8c2a030eea6674fc3"
     },
     {
-      "name": "QA/full-battles.txt",
-      "size": 178,
-      "sha256": "ed64e86fc222ac9fc1ef1f93702c8465fcc0e93576064682a97ee65d61a41144"
-    },
-    {
-      "name": "QA/regression.txt",
+      "name": "QA/offline-regression.txt",
       "size": 3835,
       "sha256": "313b4808dde46e20f6e747dfe4d785357ad241aa8a325b96d917ccae31ddf251"
     },
     {
-      "name": "QA/release.txt",
+      "name": "QA/offline-release.txt",
       "size": 1273,
       "sha256": "000e86e99286bc6b1fe1649559de45083db1896cb3adaf77aa9264bd286b72de"
     },
     {
+      "name": "QA/pvp-fight-0.png",
+      "size": 114812,
+      "sha256": "77933b70233678ea117b0d7323d6b5556dd535ba568e395d77b266aa71fe8fe4"
+    },
+    {
+      "name": "QA/pvp-fight-1.png",
+      "size": 72496,
+      "sha256": "f87c46220f40b7b35c14cb333d56ce0b7922eebf383b779a17367b215190df42"
+    },
+    {
+      "name": "QA/pvp-lobby-0.png",
+      "size": 78646,
+      "sha256": "35cba09b065a8599ab53444bb0233cd52805c70b070a3d36301e4ec0a706da4d"
+    },
+    {
       "name": "QA/REPORT.md",
-      "size": 1982,
-      "sha256": "44c6e61b85ca4b64a4a1f76624c765d4a55a562f07d3c7da3a42dd4b8886d8bd"
+      "size": 1852,
+      "sha256": "62bbeeca42e37c9532aa7670b0251fdfd7de1121430ef99279cf6254a238ce9e"
     },
     {
-      "name": "QA/simulation.json",
-      "size": 5974,
-      "sha256": "d288efa529a24c800f84403ed3d078d00c94eecdea26142f6c73ef20d7dfaaa3"
+      "name": "QA/server-tests.txt",
+      "size": 1198,
+      "sha256": "feb28a362db9fa0bd2ebac63eb4644d4ba1f5053ce6d9021adccf2eb7b8835a9"
     },
     {
-      "name": "README.txt",
-      "size": 3810,
-      "sha256": "1e1d28f00f73bd7883f642ce6822e7808d3492398fc206d2845074b278579b02"
+      "name": "QA/two-browser-duel.txt",
+      "size": 135,
+      "sha256": "084362e8b5791ab0b6e9ba20134d5a87e7dd3497b56b4bbca78e10abc6bedca0"
+    },
+    {
+      "name": "QA/two-browser-results.json",
+      "size": 455,
+      "sha256": "403df179ab0c784b81bbabbfa2cbee4acb21398059814743bd24d7e795693c58"
+    },
+    {
+      "name": "README.md",
+      "size": 3413,
+      "sha256": "b318304090379d79e4e5e6de0e8cac41269afc63b54577bb7f14a58bc1967010"
+    },
+    {
+      "name": "render.yaml",
+      "size": 566,
+      "sha256": "1b529067b8da6115dc619b836ebfbc58153108f8bda20d1cc9b20074c2416421"
+    },
+    {
+      "name": "server/.env.example",
+      "size": 266,
+      "sha256": "86f045f471686712380e44d2d6c06df36636010a43f30ba7ac02bc8d7c6ad0ef"
+    },
+    {
+      "name": "server/duel.cjs",
+      "size": 7196,
+      "sha256": "5d38b5a0c3a40a1948cdc301d84cacd1b7d806080dc3064a45908eeca96e96f7"
+    },
+    {
+      "name": "server/engine.cjs",
+      "size": 2837,
+      "sha256": "31ba63d3c37978c5a3894a95c94acc45f0ef444c27076fef8d16ac755e3abd77"
+    },
+    {
+      "name": "server/main.cjs",
+      "size": 6387,
+      "sha256": "9e635877b2bdaf247fb86994d5edc45b4804c7ef90193aa604c5561a8f2da1d7"
+    },
+    {
+      "name": "server/service.cjs",
+      "size": 7388,
+      "sha256": "33a5b16d5e84e4ff97495d14d7ec55da5045a1b4d9afacfd32ed12d6d8752ce8"
+    },
+    {
+      "name": "server/store.cjs",
+      "size": 2721,
+      "sha256": "f934908e0c3d18317f07b8017b18a1d2e21bce827275f3aa6a58e92b3c4735a1"
+    },
+    {
+      "name": "server/tests/api.test.cjs",
+      "size": 2895,
+      "sha256": "b3bf3afadeab1e161b7a955d8d8e20a6d95ba8264af107efbd2b337394dbd31e"
+    },
+    {
+      "name": "server/tests/duel.test.cjs",
+      "size": 7504,
+      "sha256": "695d1db6babd42be19c2e1e82198c1e1d84783dcb538c918eaefd01fd0d2adea"
+    },
+    {
+      "name": "ЗАПУСТИТЬ_ОНЛАЙН.cmd",
+      "size": 866,
+      "sha256": "91c3bba02016b4459c6e7a9412f74a196e6fb2fc68bc85e5bffe40ca687b72eb"
     }
   ]
 }

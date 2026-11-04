@@ -1,0 +1,12 @@
+{
+  "name": "game-of-dolbaebers",
+  "private": true,
+  "version": "0.36.0",
+  "description": "Friendly server-authoritative duels by invite code",
+  "engines": { "node": ">=24.0.0 <25" },
+  "scripts": {
+    "start": "node server/main.cjs",
+    "test": "node --test server/tests/duel.test.cjs server/tests/api.test.cjs",
+    "test:offline": "node game/tests/balance.cjs"
+  }
+}

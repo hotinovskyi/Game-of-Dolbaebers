@@ -1,0 +1,9 @@
+.git
+.env
+node_modules
+data
+server/data
+*.sqlite*
+QA
+preview.png
+*.zip

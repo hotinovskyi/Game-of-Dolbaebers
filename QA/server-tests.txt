@@ -1,0 +1,21 @@
+✔ Health, guest auth and real two-client lobby work over HTTP (201.8858ms)
+✔ Origin, nickname, request size and private files are protected (64.1298ms)
+✔ Concurrent ready requests use compare-and-swap instead of overwriting (64.2983ms)
+✔ Room is restricted to its two members and conceals the other hand (37.916ms)
+✔ Deck validation rejects duplicates, unknown cards and fake heroes (2.1888ms)
+✔ A wrong-side, fabricated card or unaffordable skill never mutates the match (36.5202ms)
+✔ Idempotency survives retries; conflicting reuse and stale revisions fail (19.9478ms)
+✔ Server time determines turn expiry and result only once (27.555ms)
+✔ SQLite restores sessions, hands, turn and command receipts after restart (249.1887ms)
+✔ Leave, surrender and unanimous rematch have defined results (14.3931ms)
+✔ Every catalog card can be played server-side without nonfinite state (695.6163ms)
+✔ Complete matches progress to a bounded result with both heroes and no AI (2810.7129ms)
+✔ Deploying incompatible rules closes the old match without a winner (10.7314ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4546.9441

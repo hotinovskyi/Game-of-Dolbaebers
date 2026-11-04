@@ -1,0 +1,52 @@
+.pvp-launch{margin:12px 0;border:1px solid #bc985f;border-radius:13px;padding:14px;background:linear-gradient(125deg,#3a3024,#172331)}
+.pvp-launch h3{margin:0 0 5px;font:750 18px/1.2 system-ui}.pvp-launch p{margin:5px 0 12px;font:400 12px/1.5 system-ui;color:#c0c5ce}
+body.pvp-is-open{overflow:hidden!important}
+#pvpApp[hidden],#pvpApp [hidden]{display:none!important}
+#pvpApp{position:fixed;inset:0;z-index:450;background:#070b12f5;display:flex;justify-content:center;align-items:stretch;color:#e8e6e0;font:400 14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;overflow:hidden;overscroll-behavior:contain}
+#pvpApp *{box-sizing:border-box}#pvpApp h2:after,#pvpApp h3:after{content:none!important}
+#pvpApp button,#pvpApp input,#pvpApp select{font-family:inherit;touch-action:manipulation}
+#pvpApp button{cursor:pointer}#pvpApp button:disabled{cursor:default;opacity:.5}#pvpApp button:focus-visible,#pvpApp input:focus-visible,#pvpApp select:focus-visible{outline:2px solid #9bd0f2;outline-offset:2px}
+.pvp-shell{display:flex;flex-direction:column;width:min(100%,880px);height:100%;max-height:100dvh;background:linear-gradient(160deg,#202430,#10151e 65%);border-inline:1px solid #7f6845}
+.pvp-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px 12px;border-bottom:1px solid #86704c55;flex-shrink:0}
+.pvp-eyebrow{font-size:10px;letter-spacing:.16em;font-weight:750;color:#ceab6c}.pvp-header h2{font:750 22px/1.2 system-ui!important;margin:5px 0 0!important;letter-spacing:-.02em;color:#f3e8d3}
+.pvp-close{width:40px;height:40px;border:1px solid #7c6d53;background:#202633;border-radius:10px;color:#d8c6a7;font-size:18px;flex-shrink:0}
+.pvp-connection{padding:6px 18px;font-size:10px;letter-spacing:.04em;color:#b5c2d2;flex-shrink:0;background:#101821}
+.pvp-message{padding:0 18px;color:#f1c58c;font-size:12px;flex-shrink:0;max-height:120px;overflow:auto}.pvp-message:not(:empty){padding-block:10px;border-bottom:1px solid #7f684455}
+.pvp-main{padding:18px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;flex:1;min-height:0;overflow-anchor:none}
+.pvp-footer{padding:7px 12px max(7px,env(safe-area-inset-bottom));text-align:center;color:#a3adbb;font-size:10px;border-top:1px solid #51607044;flex-shrink:0}
+.pvp-intro h3{margin:0 0 8px;font:750 24px/1.25 system-ui}.pvp-intro p,.pvp-note{font-size:12px;line-height:1.5;color:#b5bdca}.pvp-intro p{margin:0 0 20px}.pvp-note{margin:10px 0}
+.pvp-button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:10px 15px;background:linear-gradient(120deg,#70532e,#3b3026);border:1px solid #bc985f;border-radius:10px;color:#fff1d4;font:750 13px/1.3 system-ui;text-align:center;width:100%}
+.pvp-secondary{background:linear-gradient(120deg,#293746,#1b2737);border-color:#637b95;color:#d6e6f4}
+.pvp-link{display:block;border:0;background:none;color:#c3b28d;font-size:12px;text-decoration:underline;text-underline-offset:3px;padding:10px 0;min-height:36px}
+.pvp-form{display:flex;flex-direction:column;gap:12px}.pvp-form>label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:650;color:#d3bd93}
+.pvp-form input:not([type=checkbox]),.pvp-form select{width:100%;min-height:44px;padding:10px 12px;border:1px solid #637086;background:#101722;border-radius:9px;color:#e8e6e0;font-size:15px}
+.pvp-form input[name=code]{text-transform:uppercase;letter-spacing:.15em}.pvp-divider{text-align:center;margin:18px 0;color:#a5acb9;font-size:12px}
+.pvp-rules,.pvp-log{border-top:1px solid #66738644;padding-top:12px;margin-top:18px;font-size:12px;color:#b7c1cd}.pvp-rules summary,.pvp-log summary{cursor:pointer;color:#dbc79f;font-weight:650;min-height:32px}
+.pvp-empty{padding:32px 4px;text-align:center}.pvp-empty h3{font-size:21px}.pvp-empty p{color:#b5bdca;line-height:1.6}
+.pvp-room-code{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#151d29;padding:13px;border:1px solid #997b4e;border-radius:12px;margin-bottom:12px}
+.pvp-room-code>span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#d0b483}.pvp-room-code strong{font:800 22px/1.3 ui-monospace,monospace;letter-spacing:.1em;color:#f4d796}
+.pvp-small{min-height:34px;padding:6px 9px;border:1px solid #536278;background:#202d3d;color:#d0e2f1;border-radius:7px;font:650 10px/1.2 system-ui}
+.pvp-players{display:grid;grid-template-columns:1fr 1fr;gap:9px}.pvp-players>div{padding:12px;border:1px solid #5a6676;background:#161e2a;border-radius:10px;min-width:0}.pvp-players span,.pvp-players b,.pvp-players small{display:block;overflow-wrap:anywhere}.pvp-players span{font-size:9px;color:#bda375;text-transform:uppercase}.pvp-players b{margin:4px 0;font-size:14px}.pvp-players small{font-size:11px;color:#a8bfbb}
+.pvp-deck-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px}.pvp-deck-heading .pvp-link{font-size:10px;max-width:45%;text-align:right}
+.pvp-deck-picker{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-height:340px;overflow:auto;padding:2px;overscroll-behavior:contain}
+.pvp-pick{display:flex;gap:8px;padding:10px;border:1px solid #4b576c;background:#18202d;border-radius:9px;color:#d9dee7;cursor:pointer;min-width:0}
+.pvp-pick.selected{border-color:#dbb671;background:#302c25}.pvp-pick input{width:17px;height:17px;flex-shrink:0;accent-color:#d3af6d;margin-top:2px}.pvp-pick span{min-width:0}.pvp-pick b,.pvp-pick small{display:block;overflow-wrap:anywhere}.pvp-pick b{font-size:11px;line-height:1.3}.pvp-pick small{font-size:10px;color:#aeb8c7;line-height:1.4;margin-top:5px}
+.pvp-match-heading{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:9px 10px;margin-bottom:10px;border:1px solid #7c6847;border-radius:9px;background:#151d29}
+.pvp-match-heading>span:first-child{font-size:10px;color:#c1ad88}.pvp-match-heading>b{font-size:12px;color:#f2d38f}.pvp-clock{font:800 16px/1.2 ui-monospace,monospace;color:#a4d4bd;min-width:42px;text-align:right}.pvp-clock.urgent{color:#ffab8a}
+.pvp-fighters{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pvp-fighters article{min-width:0;padding:10px;background:#111924;border:1px solid #566b84;border-radius:12px;overflow:hidden}.pvp-fighters article.is-opponent{border-color:#986b58}
+.pvp-portrait{height:160px;background:radial-gradient(ellipse at bottom,#65738533,transparent 75%);overflow:hidden;border-radius:6px}.pvp-portrait img{display:block;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.pvp-fighter-name{margin:8px 0 6px}.pvp-fighter-name>span{display:block;font-size:9px;color:#b5b7b8;overflow-wrap:anywhere}.pvp-fighter-name b{display:block;font:750 16px/1.25 system-ui;color:#f0dfbd;margin-top:2px}.pvp-fighters strong{display:block;font-size:12px;color:#dde5ef}.pvp-hp{height:6px;border-radius:4px;background:#080c11;margin:5px 0 6px;overflow:hidden}.pvp-hp i{display:block;height:100%;background:linear-gradient(90deg,#3d9174,#a0d6a3)}.pvp-fighters article.is-opponent .pvp-hp i{background:linear-gradient(90deg,#a94f50,#ee9c7f)}
+.pvp-fighters article>small{font-size:10px;color:#b5c1d1}.pvp-statuses{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;min-height:17px}.pvp-statuses span{font-size:9px;padding:2px 4px;border-radius:4px;background:#2c3343;color:#d5cfbc}
+.pvp-last{padding:10px 0;font-size:11px;line-height:1.5;color:#bfc8d4;min-height:36px;overflow-wrap:anywhere}
+.pvp-hand{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:stretch;overflow-anchor:none}
+.pvp-card-slot{display:flex;flex-direction:column;min-width:0;border:1px solid #95805b;border-radius:10px;overflow:hidden;background:#1c2431}
+.pvp-card{display:flex;flex-direction:column;align-items:center;gap:7px;width:100%;height:auto;min-height:180px;padding:10px 7px;flex:1 0 auto;background:linear-gradient(145deg,#332d29,#1b2330 75%);border:0;color:#ece3d2;text-align:center;animation:none;transform:none;transition:none;white-space:normal}
+.pvp-card:disabled{opacity:.7!important}.pvp-card-type{font-size:8px;letter-spacing:.05em;text-transform:uppercase;color:#d3bd91}.pvp-card-icon{height:24px;display:grid;place-items:center}.pvp-card-icon svg{width:24px;height:24px;color:#dcc18a}.pvp-card b{font:750 12px/1.25 system-ui;overflow-wrap:anywhere}.pvp-card-copy{font-size:10px;line-height:1.45;flex:1;overflow-wrap:anywhere}.pvp-mana{display:block;border:1px solid #6482aa;border-radius:5px;color:#cadcf6;padding:2px 5px;font-size:10px;background:#142034}.pvp-spent{font-size:8px;visibility:hidden;min-height:12px;color:#e1bd75}.pvp-card.spent .pvp-spent{visibility:visible}.pvp-card-details{width:100%;min-height:30px;border:0;border-top:1px solid #7e6a4a77;background:#121c2b;color:#c7b28e;font-size:10px}
+.pvp-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.pvp-actions .pvp-button{font-size:11px;padding:9px 6px}
+.pvp-result{display:flex;flex-direction:column;gap:6px;padding:16px;background:linear-gradient(120deg,#463922,#1d2833);border:1px solid #c5a060;border-radius:10px;margin:0 0 12px;text-align:center}.pvp-result strong{font-size:24px;color:#f4d49a}.pvp-result span{font-size:12px;color:#cbc2b0}
+.pvp-rematch{margin:12px 0}.pvp-rematch small{display:block;font-size:11px;color:#b6c0cd}.pvp-log p{padding:5px 0;margin:0;border-bottom:1px solid #6a74852b;font-size:11px}
+.pvp-retry{display:block;min-height:34px;margin-top:8px;border:1px solid #b58f52;border-radius:6px;background:#342b20;color:#f6dfb0;padding:5px 10px}
+.pvp-detail{max-width:calc(100% - 30px);width:420px;border:1px solid #b4945d;background:#182332;color:#eee1c9;border-radius:14px;padding:20px;line-height:1.6}.pvp-detail::backdrop{background:#080d15d9}.pvp-detail h3{font:750 20px/1.3 system-ui}.pvp-detail p{font-size:13px}.pvp-detail form{margin-top:15px}
+@media(max-width:430px){.pvp-header{padding:12px}.pvp-header h2{font-size:18px!important}.pvp-main{padding:12px}.pvp-connection{padding-inline:12px}.pvp-portrait{height:130px}.pvp-room-code strong{font-size:19px}.pvp-pick{padding:8px 6px;gap:5px}.pvp-card b{font-size:10px}.pvp-card-copy{font-size:10px}.pvp-card{padding:8px 5px;gap:6px}.pvp-hand{gap:5px}}
+@media(max-height:650px){.pvp-portrait{height:95px}.pvp-header{padding-block:8px}.pvp-fighter-name b{font-size:14px}.pvp-card{min-height:160px}.pvp-deck-picker{max-height:220px}}
+@media(prefers-reduced-motion:reduce){#pvpApp *,#pvpApp *:before,#pvpApp *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
