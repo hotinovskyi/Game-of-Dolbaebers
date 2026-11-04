@@ -1,8 +1,7 @@
 {
-  "version": "0.35.0",
-  "basedOn": "0.34.1",
+  "version": "0.35.1",
+  "basedOn": "0.35.0",
   "entry": "index.html",
-  "scope": "offline PvE + cloud client; no PvP server",
   "files": [
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -126,13 +125,13 @@
     },
     {
       "name": "CHANGELOG.md",
-      "size": 4452,
-      "sha256": "e9ec3ff8c73bb156604de72b9e3880cfbe1d351e6130ee1d0c68adf0ea6a6e45"
+      "size": 5750,
+      "sha256": "07abdf15077140ee439cc5e740c6cfc287a0812b19ae6a0a9d0263e2b09f4395"
     },
     {
       "name": "index.html",
-      "size": 557767,
-      "sha256": "70401691a50837eeb32d930195ae3f5f33608d3ee28920f19139c9d72306d16e"
+      "size": 563674,
+      "sha256": "fbc4421e92af8bcf8804adc368b01708c2a389d38ee817857cfa17ecfe90d162"
     },
     {
       "name": "ONLINE_INTEGRATION.md",
@@ -141,23 +140,28 @@
     },
     {
       "name": "preview.png",
-      "size": 281744,
-      "sha256": "583322dca43563ac486f1788a8b50b857519a15180bef3aebeaa8a69a0a60372"
+      "size": 275791,
+      "sha256": "9f9a7377574b96b19a5dbba33c43ddf057d82afb744a9e86c73c02003326e91c"
     },
     {
       "name": "QA/browser-results.json",
-      "size": 6862,
-      "sha256": "28e69711254eadb17f654c796af34baf5731df78a05443161640f3e38c4567f3"
+      "size": 441,
+      "sha256": "18a84cadb811bd226be1cc74d8c7b0a2742ac4934ad9b176dc4e337c17afad6d"
     },
     {
       "name": "QA/browser.txt",
-      "size": 40,
-      "sha256": "2fae70add69e1ee707c788a61fc16ef6ab261f7a5cfd5d427b9e61eb55de31b2"
+      "size": 95,
+      "sha256": "50b74f73bd4618daf4d1000d71e5ce700ad5e830c207b29a7a67ace7e3ecba4c"
     },
     {
       "name": "QA/cloud.txt",
       "size": 452,
       "sha256": "983a07964e11968ab4748b7c10cdef80fc421f1bd15664c8c2a030eea6674fc3"
+    },
+    {
+      "name": "QA/full-battles.txt",
+      "size": 178,
+      "sha256": "ed64e86fc222ac9fc1ef1f93702c8465fcc0e93576064682a97ee65d61a41144"
     },
     {
       "name": "QA/regression.txt",
@@ -171,8 +175,8 @@
     },
     {
       "name": "QA/REPORT.md",
-      "size": 2503,
-      "sha256": "e084220ebbd54c9a7a793eb19b3ff160af94a4f8e920cf5e59ed68c41e1e1ab5"
+      "size": 1982,
+      "sha256": "44c6e61b85ca4b64a4a1f76624c765d4a55a562f07d3c7da3a42dd4b8886d8bd"
     },
     {
       "name": "QA/simulation.json",
@@ -181,8 +185,8 @@
     },
     {
       "name": "README.txt",
-      "size": 3204,
-      "sha256": "654fd2c02091e9cc401a6025fcad4abee574ef2d5c3d2decd67224fa2d729144"
+      "size": 3810,
+      "sha256": "1e1d28f00f73bd7883f642ce6822e7808d3492398fc206d2845074b278579b02"
     }
   ]
 }
