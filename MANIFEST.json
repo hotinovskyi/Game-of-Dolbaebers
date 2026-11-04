@@ -1,22 +1,17 @@
 {
-  "version": "0.33.0",
-  "basedOn": "0.32.1",
+  "version": "0.34.0",
+  "basedOn": "0.33.0",
   "entry": "index.html",
   "files": [
     {
-      "name": "index.html",
-      "size": 4867891,
-      "sha256": "76159f5a7ffc3c3c96219986d61c363510d596ea7e7ecb4474e4731b1195d834"
-    },
-    {
       "name": "QA.txt",
-      "size": 1461,
-      "sha256": "a39b582a757548fa32bff0aa2c8a15ed25c7108284f97c5fa2901ed475998381"
+      "size": 986,
+      "sha256": "ff9709b3f59f4868dc111aab1b1fee31d85700553d8e1891888fce6d6170eab7"
     },
     {
       "name": "README.txt",
-      "size": 709,
-      "sha256": "4c74c0701cf197b77a81e3b1b9a90457160c8c266582f210cbf130f8c46e1a47"
+      "size": 1214,
+      "sha256": "817ac9e402c808f548c18bf016185fe2694e17e6e4c757928b0d9a102922b5dc"
     },
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -57,6 +52,11 @@
       "name": "assets/heroes/06_Shlolv.png",
       "size": 257388,
       "sha256": "393f12528ef333df1701512d4c4337663951bdb7232a3b51b65ad413ea0691f5"
+    },
+    {
+      "name": "index.html",
+      "size": 4873239,
+      "sha256": "6428d0f815226f5d86569187c28bf458035a3dd727f3f8dda4b4222ec41b135d"
     }
   ]
 }
