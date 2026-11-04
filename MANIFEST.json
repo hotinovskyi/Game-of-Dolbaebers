@@ -1,17 +1,17 @@
 {
-  "version": "0.34.0",
-  "basedOn": "0.33.0",
+  "version": "0.34.1",
+  "basedOn": "0.34.0",
   "entry": "index.html",
   "files": [
     {
       "name": "QA.txt",
-      "size": 986,
-      "sha256": "ff9709b3f59f4868dc111aab1b1fee31d85700553d8e1891888fce6d6170eab7"
+      "size": 1337,
+      "sha256": "982363f34db52777b05052d774eb1893ad8cfc4774fd044d8a7e1dae36515334"
     },
     {
       "name": "README.txt",
-      "size": 1214,
-      "sha256": "817ac9e402c808f548c18bf016185fe2694e17e6e4c757928b0d9a102922b5dc"
+      "size": 1373,
+      "sha256": "878717394578cae2b3d568ad15df313e8d1d49317e0eb6250aed3d2e3a4808f2"
     },
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -55,8 +55,8 @@
     },
     {
       "name": "index.html",
-      "size": 4873239,
-      "sha256": "6428d0f815226f5d86569187c28bf458035a3dd727f3f8dda4b4222ec41b135d"
+      "size": 4873726,
+      "sha256": "d50f490894f77af640c7058a9d8badc033291a678e15654a553970aa8d6cdc9d"
     }
   ]
 }
