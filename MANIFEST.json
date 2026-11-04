@@ -1,0 +1,62 @@
+{
+  "version": "0.33.0",
+  "basedOn": "0.32.1",
+  "entry": "index.html",
+  "files": [
+    {
+      "name": "index.html",
+      "size": 4867891,
+      "sha256": "76159f5a7ffc3c3c96219986d61c363510d596ea7e7ecb4474e4731b1195d834"
+    },
+    {
+      "name": "QA.txt",
+      "size": 1461,
+      "sha256": "a39b582a757548fa32bff0aa2c8a15ed25c7108284f97c5fa2901ed475998381"
+    },
+    {
+      "name": "README.txt",
+      "size": 709,
+      "sha256": "4c74c0701cf197b77a81e3b1b9a90457160c8c266582f210cbf130f8c46e1a47"
+    },
+    {
+      "name": "assets/battlefield-citadel.jpg",
+      "size": 220095,
+      "sha256": "acc629076df7ed207d9f0d5eaf2dafcd4ba9dab563cb051e655d9842a444b7f0"
+    },
+    {
+      "name": "assets/battlefield-citadel.svg",
+      "size": 5223,
+      "sha256": "4172139606e5bd28a77f7fcedff113b513774a4722a05d3b0c8767746c9051bb"
+    },
+    {
+      "name": "assets/heroes/01_MokeiXD.png",
+      "size": 231113,
+      "sha256": "fb84c42a4a7d0c811aa7b849c5abb9a1868b875ab6352726e898c95d0d963837"
+    },
+    {
+      "name": "assets/heroes/02_Danil.png",
+      "size": 217976,
+      "sha256": "71d0182136cc6081ab866a0fd341ac3d094cb9e7f5482c0ba9834f61afb6a7cb"
+    },
+    {
+      "name": "assets/heroes/03_Maksos.png",
+      "size": 231470,
+      "sha256": "6a3886ae9c1d0af111e467a7f79d1a443ab254d228c3c67d022cba1cda180053"
+    },
+    {
+      "name": "assets/heroes/04_Sashok.png",
+      "size": 259614,
+      "sha256": "f8307909292bd73174d2cb19e8b14a8c99ffe84a5a9c121bc6790fcaa21525d2"
+    },
+    {
+      "name": "assets/heroes/05_Vladoshche.png",
+      "size": 209585,
+      "sha256": "8dc56415015426612caa3987b7f1d1ad6bd889446dac4b75a57215b3b64b3858"
+    },
+    {
+      "name": "assets/heroes/06_Shlolv.png",
+      "size": 257388,
+      "sha256": "393f12528ef333df1701512d4c4337663951bdb7232a3b51b65ad413ea0691f5"
+    }
+  ]
+}
