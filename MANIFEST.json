@@ -1,6 +1,6 @@
 {
-  "version": "0.36.5",
-  "basedOn": "0.36.4",
+  "version": "0.36.6",
+  "basedOn": "0.36.5",
   "entry": "index.html",
   "serverEntry": "server/main.cjs",
   "protocol": 1,
@@ -17,8 +17,8 @@
     },
     {
       "name": "CHANGELOG.md",
-      "size": 5837,
-      "sha256": "7aeb7e7ccb02bc2599c679c486d30c091f87117fb91c96ae5f7246003caf68a0"
+      "size": 7309,
+      "sha256": "c3a81f54d92c8721970ad354f7c39d2251cf7c7f9d5917ca72b14f3ec75737f7"
     },
     {
       "name": "Dockerfile",
@@ -76,6 +76,11 @@
       "sha256": "6f6be534c4c81292d3dffe07a019a1811cedf5da5f8c8c05e1b9262ac14049de"
     },
     {
+      "name": "QA/mobile-welcome-v0366.cjs",
+      "size": 637,
+      "sha256": "41fbfa9218bac67fdf0b1d9d880c0c0a3d2f249fe0885ac2bc34224931701d93"
+    },
+    {
       "name": "QA/offline-regression.txt",
       "size": 3835,
       "sha256": "313b4808dde46e20f6e747dfe4d785357ad241aa8a325b96d917ccae31ddf251"
@@ -107,8 +112,8 @@
     },
     {
       "name": "README.md",
-      "size": 7355,
-      "sha256": "01bb1346947335768b168b764767f591746bec34a7a694ee10a3802003952341"
+      "size": 7764,
+      "sha256": "7065245952fd8e096a3343fb1049fef4fbef8ad6ea18ba31f7b0ef14dce67812"
     },
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -242,13 +247,13 @@
     },
     {
       "name": "index.html",
-      "size": 584243,
-      "sha256": "28003a441a0d83d829b1676e24e15919ca41cf3c3360f20b389ee9ec11ed2d7d"
+      "size": 587473,
+      "sha256": "4930d06c53ae8371262f640b9d0a8e4bcd79966a897b06bb3dd0d77ce6df62ad"
     },
     {
       "name": "package.json",
-      "size": 430,
-      "sha256": "9d199f8206cb134ee030fbd9a2a2710160ad56d419e45d7158bffe5672be3399"
+      "size": 493,
+      "sha256": "21f8340095acd0f877373409a8a5b08c2b575c387a5559d3b51baa4ea4f9ed8c"
     },
     {
       "name": "preview.png",

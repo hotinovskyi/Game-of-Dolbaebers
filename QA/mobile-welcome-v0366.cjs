@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const html = fs.readFileSync(new URL('../index.html', `file://${__filename}`), 'utf8');
+assert.match(html, /welcome-splash-kicker/);
+assert.match(html, /welcome-splash-copy/);
+assert.match(html, /welcomeContinueMobile/);
+assert.match(html, /@media\(max-width:600px\)/);
+assert.match(html, /env\(safe-area-inset-top\)/);
+assert.match(html, /max-height:34dvh/);
+assert.match(html, /const continueFromWelcome=/);
+assert.match(html, /addEventListener\('click',continueFromWelcome\)/);
+assert.match(html, /0\.36\.6/);
+console.log('0.36.6 mobile welcome QA: PASS');
