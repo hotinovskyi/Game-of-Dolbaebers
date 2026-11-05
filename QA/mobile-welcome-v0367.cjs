@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const html = fs.readFileSync(new URL('../index.html', `file://${__filename}`), 'utf8');
+assert.match(html, /#welcomeOverlay\.show\{[\s\S]*?width:100vw!important;height:100vh!important;height:100dvh!important/);
+assert.match(html, /#welcomeOverlay\.show::before[\s\S]*?assets\/onboarding-banner\.jpeg/);
+assert.match(html, /#welcomeOverlay\.show \.welcome-banner\{[\s\S]*?width:100vw!important/);
+assert.match(html, /#welcomeOverlay\.show \.welcome-banner-hit\{display:none!important/);
+assert.match(html, /#welcomeOverlay\.show \.welcome-start-button\{[\s\S]*?min-height:58px/);
+assert.match(html, /body:has\(#welcomeOverlay\.show\) \.tabs/);
+assert.match(html, /env\(safe-area-inset-top,0px\)/);
+assert.match(html, /welcomeContinueMobile/);
+assert.match(html, /0\.36\.7/);
+console.log('0.36.7 full-screen welcome QA: PASS');

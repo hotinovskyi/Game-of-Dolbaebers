@@ -92,8 +92,8 @@ const abandonSource = between("const abandonCurrentBattle=()=>{", "document.addE
 assert.doesNotMatch(abandonSource, /endBattle\(|state\.gold\s*[+]=|rewardItem\s*=|battleRewardGold/, 'Выход из боя не должен выдавать награды');
 assert.match(source, /Объединение артефактов/,'В обучении должна быть отдельная инструкция по объединению артефактов');
 assert.match(source, /НЕРФИТСЯ, ДАНИЛ, ИДИ ПОГУЛЯЙ/,'Должно отображаться сообщение блокировки подземелья');
-assert.match(source, /src="assets\/onboarding-banner\.jpeg"/, 'Не используется welcome banner asset');
-assert.match(source, /assets\/onboarding-banner\.jpeg/, 'Путь к баннеру отсутствует');
+assert.match(source, /src="assets\/welcome-symmetrical-v0369\.jpg"/, 'Не используется новая симметричная заставка');
+assert.match(source, /id="welcomeContinue"/, 'Не найдена интерактивная кнопка старта');
 assert.match(source, /БЛЯДОНСКОЕ/, 'Максимальная редкость не переименована');
 assert.match(source, /hero-detail-ability/, 'Блок способности героя должен иметь отдельные отступы');
 assert.match(source, /#battleBoard\.is-live #enemyLastCard[^}]*margin:16px 0 5px/, 'Для карточки последнего хода нужен отдельный вертикальный отступ');

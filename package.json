@@ -1,7 +1,7 @@
 {
   "name": "game-of-dolbaebers",
   "private": true,
-  "version": "0.36.6",
+  "version": "0.36.9",
   "description": "Friendly server-authoritative duels by invite code",
   "engines": {
     "node": ">=24.0.0 <25"
@@ -11,6 +11,6 @@
     "test": "node --test server/tests/duel.test.cjs server/tests/api.test.cjs",
     "test:offline": "node QA/mechanics-v0363.cjs",
     "test:wipe": "node QA/mechanics-v0364.cjs",
-    "test:mobile-welcome": "node QA/mobile-welcome-v0366.cjs"
+    "test:mobile-welcome": "node QA/mobile-welcome-v0369.cjs"
   }
 }

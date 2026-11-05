@@ -1,0 +1,13 @@
+Game of Dolbaebers 0.36.9 — browser QA
+Engine: headless Chromium
+Profiles: 320x568, 360x800, 375x667, 390x844, 393x873, 414x896, 430x932, 844x390, 768x1024, 1024x768
+Result: 61/61 assertions PASS
+Each profile verified:
+- Start artwork loaded at 862x1824.
+- Scene preserved the artwork aspect ratio and stayed within the viewport.
+- Start button target stayed inside the artwork and received pointer hit-testing.
+- Start overlay displayed; navigation was hidden; accessible button label was present.
+- Clicking the button hid the welcome overlay and opened the hero selection overlay.
+- No JavaScript runtime or browser-console errors.
+Reduced-motion profile: verified animation-name is none.
+Visual screenshot: QA/start-screen-v0369.png

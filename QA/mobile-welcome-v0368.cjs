@@ -1,0 +1,15 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+assert.match(html, /<title>Game of Dolbaebers · 0\.36\.8<\/title>/);
+assert.equal((html.match(/id="welcomeContinue"/g) || []).length, 1, 'Должна быть ровно одна кнопка продолжения');
+assert.doesNotMatch(html, /id="welcomeContinueMobile"|id="welcome-banner-hit"/);
+assert.match(html, /src="assets\/onboarding-hero-mobile\.jpeg"/);
+assert.match(html, /#welcomeOverlay\.show\{[\s\S]*?height:100dvh!important/);
+assert.match(html, /body:has\(#welcomeOverlay\.show\) \.tabs,body:has\(#welcomeOverlay\.show\) \.top\{display:none!important/);
+assert.match(html, /env\(safe-area-inset-bottom,0px\)/);
+assert.match(html, /const continueFromWelcome=\(\)=>\{\$\('#welcomeOverlay'\)\.classList\.remove\('show'\);\$\('#heroSelectOverlay'\)\.classList\.add\('show'\);\};\$\('#welcomeContinue'\)\.addEventListener\('click',continueFromWelcome\);/);
+assert.ok(fs.statSync(path.join(root, 'assets', 'onboarding-hero-mobile.jpeg')).size > 50000);
+console.log('0.36.8 mobile welcome: one CTA, full viewport, safe areas, hero crop: PASS');

@@ -1,6 +1,6 @@
 {
-  "version": "0.36.6",
-  "basedOn": "0.36.5",
+  "version": "0.36.9",
+  "basedOn": "0.36.8",
   "entry": "index.html",
   "serverEntry": "server/main.cjs",
   "protocol": 1,
@@ -17,8 +17,8 @@
     },
     {
       "name": "CHANGELOG.md",
-      "size": 7309,
-      "sha256": "c3a81f54d92c8721970ad354f7c39d2251cf7c7f9d5917ca72b14f3ec75737f7"
+      "size": 10526,
+      "sha256": "d0ab1b0a0b7258d0f118cec1bd408d036bdef6af11f216776c5cb552ed6fe838"
     },
     {
       "name": "Dockerfile",
@@ -32,8 +32,8 @@
     },
     {
       "name": "QA/REPORT.md",
-      "size": 4837,
-      "sha256": "3216b3eddd1938b22e598f696b0323b1f7d05300878b857b0c5472a70c71b84c"
+      "size": 6342,
+      "sha256": "e92869742260b8bf3d76e083b600f3c15b3709c6b8a71bd946c9094f2d9d8004"
     },
     {
       "name": "QA/browser-results.json",
@@ -67,8 +67,8 @@
     },
     {
       "name": "QA/mechanics-v0363.cjs",
-      "size": 12376,
-      "sha256": "fd9b5247af54305f6ffddeeadd9a9139260260f1a48d3dca586b1147cfeab2a5"
+      "size": 12427,
+      "sha256": "6778f3ac079e804e7f68e79e2f2cf95785b99172c14b6a881f2edd5eed69a280"
     },
     {
       "name": "QA/mechanics-v0364.cjs",
@@ -76,9 +76,29 @@
       "sha256": "6f6be534c4c81292d3dffe07a019a1811cedf5da5f8c8c05e1b9262ac14049de"
     },
     {
+      "name": "QA/mobile-welcome-browser-v0369.txt",
+      "size": 739,
+      "sha256": "5c3faf27d6bc39b9a0dc4cf4e1a181ae2bf5a4b0349799c3468155b3278a9d95"
+    },
+    {
       "name": "QA/mobile-welcome-v0366.cjs",
       "size": 637,
       "sha256": "41fbfa9218bac67fdf0b1d9d880c0c0a3d2f249fe0885ac2bc34224931701d93"
+    },
+    {
+      "name": "QA/mobile-welcome-v0367.cjs",
+      "size": 903,
+      "sha256": "f5fca4151b4fecf3802d488db62ecf0198ec17aabdc28c543e979472f5654050"
+    },
+    {
+      "name": "QA/mobile-welcome-v0368.cjs",
+      "size": 1282,
+      "sha256": "24ea41995af611c8ea6059b4d062a132cd62aced5cbd67bee4887ff916d8ab3e"
+    },
+    {
+      "name": "QA/mobile-welcome-v0369.cjs",
+      "size": 2170,
+      "sha256": "5ad17c2bb3203525e0758ba7d13334863b825c6231a2433314abfed1b48d408c"
     },
     {
       "name": "QA/offline-regression.txt",
@@ -94,6 +114,11 @@
       "name": "QA/server-tests.txt",
       "size": 1193,
       "sha256": "ac65222ab5f1ef41d3a7d3064ea4e4a8cbd420bdf73639e448dce434c21c43e8"
+    },
+    {
+      "name": "QA/start-screen-v0369.png",
+      "size": 221001,
+      "sha256": "192fabb6c0ebf0cb1a1ed424a8d7582fe4f718693712cc116688a93f352406e0"
     },
     {
       "name": "QA/v0361-battle-shop.png",
@@ -112,8 +137,8 @@
     },
     {
       "name": "README.md",
-      "size": 7764,
-      "sha256": "7065245952fd8e096a3343fb1049fef4fbef8ad6ea18ba31f7b0ef14dce67812"
+      "size": 9630,
+      "sha256": "98c6e71b96f7f7ba3f3de7652b502077d1cfc9f48bb36cffd70d3785c882fef1"
     },
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -241,19 +266,29 @@
       "sha256": "0768bc41577f8a667531628aa406d6f499fc46f97cd822d67509320b0144bf6e"
     },
     {
+      "name": "assets/onboarding-hero-mobile.jpeg",
+      "size": 282397,
+      "sha256": "bf4ebafd42c7754bc994fdd4d8e9b01ab8cdcb0bddf33ea8f2cbcb4d7f95c5f3"
+    },
+    {
+      "name": "assets/welcome-symmetrical-v0369.jpg",
+      "size": 666533,
+      "sha256": "e34b81298ce39006d56056822c42a5537df65b040703f2a91a07eaef0db4b305"
+    },
+    {
       "name": "assets/wipe-danil.png",
       "size": 241415,
       "sha256": "fb80b04c630de3271c3bd5f248eda5aaed66bd47eb6ec9e4ef6e328eccd93255"
     },
     {
       "name": "index.html",
-      "size": 587473,
-      "sha256": "4930d06c53ae8371262f640b9d0a8e4bcd79966a897b06bb3dd0d77ce6df62ad"
+      "size": 597375,
+      "sha256": "157b1af1fbec848fbc6077735cec8aa837fdebceb3b2c1d2151ff87e3e414415"
     },
     {
       "name": "package.json",
       "size": 493,
-      "sha256": "21f8340095acd0f877373409a8a5b08c2b575c387a5559d3b51baa4ea4f9ed8c"
+      "sha256": "f7fd2b22b3ae6363d5dc60cc12f278772135bfa942d6a7bf1496c7602b6960ce"
     },
     {
       "name": "preview.png",
