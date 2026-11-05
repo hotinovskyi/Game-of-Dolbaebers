@@ -1,6 +1,6 @@
 {
-  "version": "0.36.9",
-  "basedOn": "0.36.8",
+  "version": "0.37.0",
+  "basedOn": "0.36.9",
   "entry": "index.html",
   "serverEntry": "server/main.cjs",
   "protocol": 1,
@@ -17,8 +17,8 @@
     },
     {
       "name": "CHANGELOG.md",
-      "size": 10526,
-      "sha256": "d0ab1b0a0b7258d0f118cec1bd408d036bdef6af11f216776c5cb552ed6fe838"
+      "size": 10948,
+      "sha256": "4e7e4f034e8232ac6e18bfc3f259cb1950bc8f3b641ccb11e75fabdd64dae68c"
     },
     {
       "name": "Dockerfile",
@@ -137,8 +137,8 @@
     },
     {
       "name": "README.md",
-      "size": 9630,
-      "sha256": "98c6e71b96f7f7ba3f3de7652b502077d1cfc9f48bb36cffd70d3785c882fef1"
+      "size": 9833,
+      "sha256": "1761f32c06e3eb4954c6415130c65d69706de3d110e215d6cd95ec1da420a465"
     },
     {
       "name": "assets/battlefield-citadel.jpg",
@@ -282,13 +282,13 @@
     },
     {
       "name": "index.html",
-      "size": 597375,
-      "sha256": "157b1af1fbec848fbc6077735cec8aa837fdebceb3b2c1d2151ff87e3e414415"
+      "size": 600294,
+      "sha256": "ee7e2f3431658515894320857d432215619532f52d496ff39b3cb4bfa4b80dc5"
     },
     {
       "name": "package.json",
       "size": 493,
-      "sha256": "f7fd2b22b3ae6363d5dc60cc12f278772135bfa942d6a7bf1496c7602b6960ce"
+      "sha256": "987c2aeb9c1447680217cf014c7859648893d385f42427f87f7c49c7210e7276"
     },
     {
       "name": "preview.png",

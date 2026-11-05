@@ -1,7 +1,7 @@
 {
   "name": "game-of-dolbaebers",
   "private": true,
-  "version": "0.36.9",
+  "version": "0.37.0",
   "description": "Friendly server-authoritative duels by invite code",
   "engines": {
     "node": ">=24.0.0 <25"
