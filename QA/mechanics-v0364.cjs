@@ -1,0 +1,15 @@
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const source = fs.readFileSync(new URL('../index.html', `file://${__filename}`), 'utf8');
+assert.match(source, /const GLOBAL_WIPE_KEY='god_global_wipe_2026_v1'/);
+assert.match(source, /if\(localStorage\.getItem\(GLOBAL_WIPE_KEY\)!=='done'\)/);
+for (const key of ['game_of_dolbaebers_v14','game_of_dolbaebers_v09','arena_item_rpg_v07','arena_item_rpg_v04','arena_item_rpg_v03']) assert.match(source, new RegExp(key));
+assert.match(source, /localStorage\.setItem\(GLOBAL_WIPE_KEY,'done'\)/);
+assert.match(source, /id="globalWipeOverlay"/);
+assert.match(source, /src="assets\/wipe-danil\.png" alt="Данил после вайпа"/);
+assert.ok(require('node:fs').existsSync(new URL('../assets/wipe-danil.png', `file://${__filename}`)), 'wipe photo asset exists');
+assert.match(source, /ПЕРВЫЙ ВАЙП/);
+assert.match(source, /ВСЁ, ПИЗДА\./);
+assert.match(source, /Данил, фарми по новой\./);
+assert.match(source, /if\(globalWipeApplied\)\{battle=null;state=freshState\(\);save\(\);\}/);
+console.log('0.36.5 one-time global wipe + photo QA: PASS');
