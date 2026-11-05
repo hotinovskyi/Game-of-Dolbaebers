@@ -1410,7 +1410,7 @@ body{background-color:#0a090e!important;background-image:radial-gradient(ellipse
 #heroDetailContent h2{color:#ffe1a5}
 #tutorialSkipAll{background:#332a20;border-color:#b58e55;color:#f5dca8}
 @media(max-width:390px){#heroSelectGrid.hero-grid{gap:8px!important}#heroSelectGrid .hero-choice img{height:clamp(126px,19vh,165px)!important;min-height:126px}#heroSelectGrid .hero-choice-meta b{font-size:13px}}
-</style></head>
+</style><style id="boss-rush-score-v0371">.boss-rush-score{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0 8px!important}.boss-rush-score>span{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border:1px solid #ad7e45;border-radius:12px;background:linear-gradient(145deg,#43301f,#211c21);box-shadow:inset 0 1px #f2cd8550,0 6px 16px #0006}.boss-rush-score small{font:800 9px/1.2 Georgia,serif;letter-spacing:.1em;color:#e8c58e}.boss-rush-score strong{font:700 26px/1 Georgia,serif;color:#ffe1a2;text-shadow:0 2px 15px #d9984580}.boss-score-best{border-color:#e0b45f!important;background:linear-gradient(145deg,#62401d,#2c211d)!important}.boss-share-button{width:100%;min-height:34px;margin:0 0 9px!important;padding:7px;font-size:10px;letter-spacing:.09em;color:#f1d49f;border-color:#9d7546}.boss-share-button:disabled{opacity:.48}@media(max-width:390px){.boss-rush-score>span{padding:8px}.boss-rush-score small{font-size:8px}.boss-rush-score strong{font-size:21px}}</style></head>
 <body>
 <main class="app">
   <header class="top"><div><div class="brand">GAME OF DOLBAEBERS <span class="build-badge">БИЛД 36.8</span></div><div class="title" id="screenTitle">Game of Dolbaebers</div></div><div class="top-actions"><div class="wallet"><span class="wallet-coin"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5c-.8-.8-1.8-1.2-3.2-1.2-1.7 0-2.8.8-2.8 2s1 1.8 2.8 2.2 2.8 1 2.8 2.2-1.1 2-2.9 2c-1.3 0-2.5-.5-3.3-1.3M12 5.8v12.4"/></svg></span> <span id="gold">500</span></div></div></header>
@@ -1502,7 +1502,7 @@ body{background-color:#0a090e!important;background-image:radial-gradient(ellipse
           <div class="arena-mode-head"><div class="arena-mode-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 12 5 7l6 2 5-5 5 5 6-2-2 6 2 6-6 1-5 6-5-6-6-1z"/><path d="M11 14h.1M21 14h.1M12 20q4 3 8 0M13 17l-2 2m8-2 2 2"/></svg></div><span class="arena-mode-index">02 · БЕСКОНЕЧНЫЙ РЕЖИМ</span></div>
           <div class="arena-mode-kicker">ИСПЫТАНИЕ НА ВЫНОСЛИВОСТЬ</div><b>Boss Rush</b>
           <p>Цепочка всё более сильных боссов. Рекорд сохраняется, а награды растут с каждым этапом.</p>
-          <div class="boss-progress mode-progress" id="bossRushProgress">Следующий босс: №1</div>
+          <div class="boss-progress mode-progress boss-rush-score" id="bossRushProgress" aria-live="polite"></div><button class="btn secondary boss-share-button" id="bossRushShare" type="button" aria-label="Скопировать рекорд босс-раша">СКОПИРОВАТЬ РЕКОРД ↗</button>
           <button class="btn mode-action" id="bossRushStart" type="button"><span>НАЧАТЬ BOSS RUSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
         </article>
         <article class="arena-mode-card dungeon-mode">
@@ -2595,7 +2595,7 @@ if(Math.random()<.22){const pool=[['stunChance',.04,'шанс оглушения
     const h=currentHero(),wins=Number(state.arenaWins)||0,losses=Number(state.arenaLosses)||0,best=Number(state.bossRushBest)||0;
     const rating=1000+wins*25+best*15;
     $('#arenaRatingContent').innerHTML=`<div class="arena-rating-row"><span class="arena-rating-mark">★</span><span class="arena-rating-player"><b>${h.name}</b><small>Победы: ${wins} · Поражения: ${losses} · Лучший Boss Rush: ${best}</small></span><strong class="arena-rating-score">${rating.toLocaleString('ru-RU')}</strong></div>`;
-    $('#bossRushProgress').textContent=`Следующий босс: №${Number(state.bossRushStage)||1} · Рекорд: ${best}`;
+    $('#bossRushProgress').innerHTML=`<span class="boss-score-current"><small>ТЕКУЩИЙ ЭТАП</small><strong>№${Number(state.bossRushStage)||1}</strong></span><span class="boss-score-best"><small>ЛИЧНЫЙ РЕКОРД</small><strong>№${best}</strong></span>`;$('#bossRushShare').disabled=best<1;
     $('#bossRushStart').textContent=`НАЧАТЬ BOSS RUSH · ${Number(state.bossRushStage)||1}`;if($('#dungeonProgress'))$('#dungeonProgress').textContent=`Рекорд: ${Number(state.dungeonBest)||0} комнат · Сейчас: ${state.dungeonRun?.active?'комната '+state.dungeonRun.room:'не начато'}`;if($('#draftProgress'))$('#draftProgress').textContent=`Побед в драфте: ${Number(state.draftWins)||0}`;
   };
   const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;};
@@ -3164,6 +3164,7 @@ if(Math.random()<.22){const pool=[['stunChance',.04,'шанс оглушения
   };
   $('#startBattle').addEventListener('click',()=>{if(selectedMod)startBattleWithMod(selectedMod);});
   $('#quickBattle').addEventListener('click',()=>{arenaMode='duel';if(!state.heroLocked){$('#heroSelectOverlay').classList.add('show');toast('Сначала выбери героя на сезон');return;}rollBattleMods();});
+  $('#bossRushShare').addEventListener('click',async()=>{const best=Number(state.bossRushBest)||0;if(!best)return;const msg=`Я дошёл до босса №${best} в Game of Dolbaebers. Сможешь дальше?`;try{await navigator.clipboard.writeText(msg);toast('Рекорд скопирован — отправь друзьям!');}catch(e){toast('Не удалось скопировать. Рекорд: босс №'+best);}});
   $('#bossRushStart').addEventListener('click',()=>{arenaMode='bossRush';if(!state.heroLocked){$('#heroSelectOverlay').classList.add('show');toast('Сначала выбери героя на сезон');return;}rollBattleMods();});
   $('#dungeonStart').addEventListener('click',()=>{const note=$('#dungeonLockNotice');if(note){note.hidden=false;note.classList.add('show');}$('#dungeonStart').setAttribute('aria-expanded','true');});
   const openRandomDraft=()=>{if(battle&&!battle.ended){toast('Сначала заверши текущий бой');return;}arenaMode='draft';if(!state.heroLocked){$('#heroSelectOverlay').classList.add('show');toast('Сначала выбери героя на сезон');return;}state.randomDraftDeck=shuffle(cardCatalog.map(c=>c.id)).slice(0,10);save();$('#draftCards').innerHTML=state.randomDraftDeck.map((id,i)=>{const c=cardById(id);return `<div class="draft-mini-card"><span>${String(i+1).padStart(2,'0')}</span><b>${c.name}</b><small>${cardCopyMarkup(c)}</small></div>`;}).join('');$('#draftModal').classList.add('show');};
